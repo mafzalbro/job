@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+
+.h-full {
+    height: 100vh;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.rounded-full {
+    border-radius: 100px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.gap {
+    gap: 2rem;
+}
+
+.gap-2 {
+    gap: 4px;
+}
+
+.gap-4 {
+    gap: 8px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
+button:focus {
+    outline: 2px solid #63fab1;
+}
+
+.relative {
+    position: relative;
+}
+
+.responsive-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+    .responsive-flex {
+        flex-direction: column;
+    }
+
+}
+
+/* for testing purpose */
+
+.bg-red {
+    background-color: red;
+}

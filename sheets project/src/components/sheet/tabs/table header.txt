@@ -1,0 +1,31 @@
+Project
+Project Name
+Budget Entry
+Budget Line
+Item No.
+Item Description
+UoM Name
+Quantity
+Open Qty
+Unit Price
+LPPrice
+Market Price
+Last Purchase Price
+Gross Price after Disc.
+Gross Total (LC)
+IGP Quantity
+MIR Entry
+Whse
+Base Document
+Base Line Ref
+Budget Price
+Cost Center
+Delivered Date
+
+Item/Service Type
+Item
+
+Summary Type
+
+
+this are all header of table's titles in reverse order (start from bottom i.e. cost center)

@@ -1,0 +1,36 @@
+.header-section input,
+.header-section select,
+.footer-section input,
+.footer-section select {
+    height: 20px;
+    padding: 0px 4px;
+    font-size: 14px;
+}
+
+.footer-section textarea {
+    max-height: 300px;
+    width: 100%;
+}
+
+.header-section .input-group,
+.footer-section .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-section .input-group label,
+.footer-section .input-group label {
+    width: 100%;
+    text-align: right;
+}
+
+.header-section .input-group select,
+.footer-section .input-group select {
+    width: 100%;
+}
+
+.header-section .input-group input,
+.footer-section .input-group input {
+    width: 100%;
+}
