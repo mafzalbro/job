@@ -75,7 +75,7 @@ const LeftFooterArea = () => {
 
             <div className='flex gap-2 my-2'>
                 <Button>Add & New</Button>
-                <Button variant='secondary'>Add Draft & New</Button>
+                <Button variant='secondary' disabled>Add Draft & New</Button>
                 <Button>Cancel</Button>
             </div>
         </div>

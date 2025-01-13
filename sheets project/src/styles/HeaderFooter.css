@@ -1,0 +1,91 @@
+.header-section,
+.footer-section {
+    padding: 32px;
+    /* background-color: var(--color-white); */
+    border-radius: 12px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-section input,
+.header-section select,
+.footer-section input,
+.footer-section select,
+.header-section textarea,
+.footer-section textarea
+{
+    /* padding: 14px 18px; */
+    font-size: 16px;
+    border: var(--border-width) solid var(--color-border-light) !important;
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    outline: none;
+    width: 100%;
+}
+
+.header-section input:focus,
+.footer-section input:focus,
+.header-section select:focus,
+.footer-section select:focus,
+.footer-section textarea:focus {
+    outline-offset: 0px;
+    outline: 2px solid var(--color-primary);
+}
+
+.header-section input:hover,
+.footer-section input:hover,
+.header-section select:hover,
+.footer-section select:hover,
+.footer-section textarea:hover {
+    border-color: var(--color-primary);
+    /* background-color: var(--color-hover-bg); */
+    /* transform: scale(1.01); */
+}
+
+.footer-section textarea {
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: var(--textarea-border-radius);
+    border: var(--border-width) solid var(--color-border);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    min-height: 140px;
+    resize: vertical;
+    width: 100%;
+}
+
+.header-section .input-group label,
+.footer-section .input-group label {
+    width: 40%;
+    text-align: right;
+    color: var(--color-text) !important;
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 10px;
+    /* font-size: small !important; */
+}
+
+
+.header-section input::placeholder,
+.footer-section input::placeholder,
+.header-section select::placeholder,
+.footer-section select::placeholder {
+    color: var(--color-light-gray);
+}
+
+@media (max-width: 480px) {
+
+    .header-section .input-group label,
+    .footer-section .input-group label {
+        width: 100%;
+        text-align: left;
+    }
+
+    .header-section .input-group input,
+    .footer-section .input-group input,
+    .header-section .input-group select,
+    .footer-section .input-group select {
+        width: 100%;
+    }
+}

@@ -178,8 +178,8 @@ const RightSideFooter = () => {
             </div>
 
             <div className='flex gap-2 my-2 justify-end'>
-                <Button variant='secondary'>Copy From</Button>
-                <Button variant='secondary'>Copy To</Button>
+                <Button variant='secondary' disabled>Copy From</Button>
+                <Button variant='secondary' disabled>Copy To</Button>
             </div>
         </div>
     )

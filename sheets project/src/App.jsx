@@ -1,11 +1,14 @@
 import SheetModule from './components/sheet/SheetModule'
-import './App.css'
+import './styles/App.css'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <SheetModule />
+      <BrowserRouter>
+        <SheetModule />
+      </BrowserRouter>
     </>
   )
 }

@@ -1,0 +1,172 @@
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: var(--color-text);
+    border-radius: var(--border-radius);
+    padding: 4px;
+    /* Ensure the indicator matches the text color */
+}
+
+
+input,
+select,
+textarea {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 350px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* background-color: var(--color-white); */
+}
+
+th,
+td {
+    text-align: center;
+    border: 1px solid var(--color-border) !important;
+}
+
+th {
+    font-weight: 600;
+    padding: 20px 30px;
+    font-size: medium;
+    background-color: var(--th-bg);
+}
+
+td:first-child {
+    background-color: var(--th-bg);
+}
+
+table input {
+    padding: 14px 18px;
+    /* color: var(--color-text); */
+    transition: all 0.3s ease;
+    background: var(--color-background) !important;
+}
+
+table input:focus {
+    border-color: var(--color-primary);
+    background-color: var(--color-background);
+    /* transform: scale(1.02); */
+}
+
+table input::placeholder {
+    color: var(--color-light-gray);
+}
+
+@media (max-width: 480px) {
+
+    table input,
+    table select {
+        width: 100%;
+    }
+}
+
+select {
+    appearance: none;
+    padding-right: 30px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVR4nO2UOwrAIBAFvUQk3v8mSZVfE4scZ4LESlCMut0OCBa+HV6xGqMoijIKYAFOwA6YZYELWGse73z4HnmUhhmBrSYwAXcMPIBrkKYz5tagE5f2yLulLfJh0j/y4dIauZi0JBeXZnbTJ/fuD6dI0lK2aab5EY9sU0VRFJPwAs/UbERVyi05AAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+    /* font-size: 12px !important; */
+}
+
+option {
+    background-color: var(--color-background);
+}
+
+label {
+    color: var(--color-text) !important;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    /* border: 2px solid var(--color-border); */
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* background-color: var(--color-white); */
+    outline: none;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--color-background);
+    border-color: var(--color-primary);
+}
+
+input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-white);
+    clip-path: polygon(46% 85%, 94% 13%, 46% 63%, 14% 48%);
+}
+
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 5px var(--color-focus-shadow);
+    border-color: var(--color-primary);
+}
+
+input[type="checkbox"]:disabled {
+    background-color: var(--color-disabled-bg);
+    border-color: var(--color-disabled-border);
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:disabled::before {
+    background-color: var(--color-disabled-border);
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+    height: 12px;
+    /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 6px;
+    /* Rounded corners for the thumb */
+    border: 2px solid transparent;
+    /* Adds some padding effect */
+    background-clip: padding-box;
+    /* Ensures smooth thumb edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(52, 172, 144, 0.7);
+    /* Darker on hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-scrollbar-track);
+    border-radius: 6px;
+    /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--color-scrollbar-track);
+    /* Matches the track color */
+}

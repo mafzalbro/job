@@ -1,0 +1,407 @@
+/* Global Styles */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* transition: all 0.3s ease; */
+}
+
+/* Reset default margins/paddings for all elements */
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    height: 100%;
+    position: relative;
+    /* Ensure ::before is positioned relative to the body */
+    margin: 0;
+    /* Ensure there's no default margin */
+    /* cursor: url("cursor.svg"), auto; */
+}
+
+/* Adding subtle grid background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Adjust opacity */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+    background-size: 15px 15px;
+    /* Make grid tighter */
+    pointer-events: none;
+    z-index: -10;
+}
+
+/* Header and Footer Section Styles */
+.header-section,
+.footer-section {
+    padding: 32px;
+    background-color: #ffffff;
+    /* Clean white background */
+    border-radius: 12px;
+    /* Rounded corners for the container */
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); */
+    /* Soft deep shadow for depth */
+    margin-bottom: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for the sections */
+.header-section:hover,
+.footer-section:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.02);
+    /* Elevation on hover */
+}
+
+/* Styling for input, select, and textarea fields */
+.header-section input,
+.header-section select,
+.footer-section input,
+.footer-section select {
+    padding: 14px 18px;
+    font-size: 16px;
+    /* Slightly larger font for readability */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* background-color: #fafafa; */
+    /* Subtle off-white background */
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+    width: 100%;
+}
+
+/* Focus Effects for Input Fields */
+.header-section input:focus,
+.footer-section input:focus,
+.header-section select:focus,
+.footer-section select:focus,
+.footer-section textarea:focus {
+    border-color: #6C63FF;
+    /* Vibrant purple focus border */
+    background-color: #ffffff;
+    /* Cleaner background on focus */
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+    /* Soft shadow for focus effect */
+    transform: scale(1.02);
+    /* Slight zoom effect to highlight focus */
+}
+
+/* Hover Effects for Input Fields */
+.header-section input:hover,
+.footer-section input:hover,
+.header-section select:hover,
+.footer-section select:hover,
+.footer-section textarea:hover {
+    border-color: #6C63FF;
+    background-color: #f4f6f9;
+    /* Subtle light background on hover */
+    transform: scale(1.01);
+    /* Slight zoom on hover for interactivity */
+}
+
+/* Styling for Textareas */
+.footer-section textarea {
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    /* background-color: #fafafa; */
+    color: #333;
+    transition: all 0.3s ease;
+    min-height: 140px;
+    resize: vertical;
+    width: 100%;
+    /* Allow vertical resizing */
+}
+
+/* Label Styles */
+.header-section .input-group label,
+.footer-section .input-group label {
+    width: 30%;
+    text-align: right;
+    color: #333;
+    font-weight: 600;
+    /* Bold for labels */
+    font-size: 16px;
+    margin-right: 16px;
+}
+
+/* Placeholder Styling */
+.header-section input::placeholder,
+.footer-section input::placeholder,
+.header-section select::placeholder,
+.footer-section select::placeholder {
+    color: #bbb;
+    /* Light gray for placeholders */
+}
+
+/* Transition for elements */
+input,
+select,
+textarea {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Group Layout */
+.header-section .input-group,
+.footer-section .input-group {
+    display: flex;
+    align-items: center;
+    /* gap: 24px; */
+    /* margin-bottom: 20px; */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Full-width Group Styling */
+.input-group.full-width {
+    width: 100%;
+}
+
+/* Table Styling */
+table {
+    /* width: 100%; */
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+th {
+    font-weight: 600;
+    padding: 20px 30px;
+    font-size: medium;
+}
+
+th:first-child {
+    padding: 5px;
+}
+
+/* Styling for input, select, and textarea fields inside tables */
+table input {
+    padding: 14px 18px;
+    /* font-size: 16px; */
+    /* border: 1px solid #ddd; */
+    /* border-radius: 10px; */
+    color: #333;
+    transition: all 0.3s ease;
+    /* width: 100%; */
+}
+
+/* Focus Effects for Input Fields inside tables */
+table input:focus {
+    border-color: #6C63FF;
+    background-color: #f7f9fc;
+    transform: scale(1.02);
+}
+
+/* Placeholder Styling inside table inputs */
+table input::placeholder,
+table select::placeholder {
+    color: #bbb;
+}
+
+/* Input Group Layout inside tables */
+table .input-group {
+    display: flex;
+    align-items: center;
+}
+
+/* Adjusting Input and Select Width inside table */
+table .input-group input,
+table .input-group select {
+    width: 100%;
+}
+
+/* Custom Scrollbar for inputs in table */
+table ::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+table ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+table ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Full-width Group Styling inside table */
+table .input-group.full-width {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+
+    table input,
+    table select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header-section .input-group label,
+    .footer-section .input-group label {
+        width: 100%;
+        /* Stack label and input for small screens */
+        text-align: left;
+    }
+
+    .header-section .input-group input,
+    .footer-section .input-group input,
+    .header-section .input-group select,
+    .footer-section .input-group select {
+        width: 100%;
+        /* Full-width inputs on small screens */
+    }
+}
+
+/* General Input and Select Styling under .main class */
+.main input,
+.main select {
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #333;
+    transition: all 0.3s ease;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    outline: none;
+}
+
+/* Custom Dropdown Arrow for Select Elements */
+.main select {
+    padding-right: 30px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVR4nO2UOwrAIBAFvUQk3v8mSZVfE4scZ4LESlCMut0OCBa+HV6xGqMoijIKYAFOwA6YZYELWGse73z4HnmUhhmBrSYwAXcMPIBrkKYz5tagE5f2yLulLfJh0j/y4dIauZi0JBeXZnbTJ/fuD6dI0lK2aab5EY9sU0VRFJPwAs/UbERVyi05AAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+}
+
+/* Focus Effects for Input and Select Fields inside .main */
+.main input:focus,
+.main select:focus {
+    border-color: #6C63FF;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* Hover Effects for Input and Select Fields inside .main */
+.main input:hover,
+.main select:hover {
+    border-color: #6C63FF;
+    background-color: #f4f6f9;
+    transform: scale(1.01);
+}
+
+/* Placeholder Styling inside .main */
+.main input::placeholder,
+.main select::placeholder {
+    color: #bbb;
+}
+
+/* Custom Scrollbar for Input and Select Fields inside .main */
+.main input::-webkit-scrollbar,
+.main select::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main input::-webkit-scrollbar-thumb,
+.main select::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.main input::-webkit-scrollbar-track,
+.main select::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Global Styles for Checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 24px;
+    /* Slightly bigger checkbox */
+    height: 24px;
+    /* Slightly bigger checkbox */
+    padding: 0;
+    margin: 0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    /* Circular checkbox */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    outline: none;
+}
+
+/* Custom Checkbox Tick */
+input[type="checkbox"]:checked {
+    background-color: #6C63FF;
+    border-color: #6C63FF;
+}
+
+/* Adjusting the checkmark */
+input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;   
+    /* Adjusted to center the tick vertically */
+    left: 2px;
+    /* Adjusted to center the tick horizontally */
+    width: 20px;
+    /* Slightly bigger tick */
+    height: 20px;
+    background-color: white;
+    /* Lighter tick */
+    clip-path: polygon(46% 85%, 94% 13%, 46% 63%, 14% 48%);
+    /* Custom tick shape (checkmark) */
+}
+
+/* Focus Effects */
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+    border-color: #6C63FF;
+}
+
+/* Disabled Checkbox */
+input[type="checkbox"]:disabled {
+    background-color: #f0f0f0;
+    border-color: #d1d1d1;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:disabled::before {
+    background-color: #d1d1d1;
+}

@@ -30,40 +30,42 @@ const RightSideHeader = () => {
           <label htmlFor="thirdField" className="text-sm font-medium">
             No.
           </label>
-          <select
-            id="thirdField"
-            name="thirdField"
-            value={formData.thirdField}
-            onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
-          >
-            <option value="">Select an Option</option>
-            {thirdFieldOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <div className="flex gap-2 input-group">
-            <input
-              id="number1"
-              name="number1"
-              type="text"
-              value={formData.number1}
+          <div className='flex justify-center items-center gap-0.5 input-group'>
+            <select
+              id="thirdField"
+              name="thirdField"
+              value={formData.thirdField}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
-            />
-          </div>
-          <div>-</div>
-          <div className="flex gap-2 input-group">
-            <input
-              id="number2"
-              name="number2"
-              type="text"
-              value={formData.number2}
-              onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
-            />
+              className="mt-1 p-2 border w-[140%] border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
+            >
+              <option value="" disabled>Primary</option>
+              {thirdFieldOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <div className="flex gap-2">
+              <input
+                id="number1"
+                name="number1"
+                type="text"
+                value={formData.number1}
+                onChange={handleChange}
+                className="mt-1 p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
+              />
+            </div>
+            <div>-</div>
+            <div className="flex gap-2">
+              <input
+                id="number2"
+                name="number2"
+                type="text"
+                value={formData.number2}
+                onChange={handleChange}
+                className="mt-1 p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
+              />
+            </div>
           </div>
         </div>
       </div>
