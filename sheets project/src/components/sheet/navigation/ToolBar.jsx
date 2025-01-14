@@ -52,7 +52,7 @@ const Toolbar = () => {
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 backdrop-blur-md bg-background/50 ${isVisible ? 'translate-y-full' : 'translate-y-0'
-        } flex justify-start pl-4 items-center py-2 space-x-6 bg-background border`}
+        } flex justify-start pl-4 items-center py-2 space-x-6 bg-background overflow-x-auto overflow-y-hidden hide-scrollbar`}
     >
       {tools.map((tool, index) => (
         <div key={index} className="relative group">

@@ -4,7 +4,7 @@ import Tabs from './tabs/Tabs'
 import Footer from "./footer/Footer"
 import NavBar from "./navigation/Navbar"
 import ToolBar from "./navigation/ToolBar"
-import Sidebar from './navigation/Sidebar'
+// import Sidebar from './navigation/Sidebar'
 
 const SheetModule = () => {
     return (
