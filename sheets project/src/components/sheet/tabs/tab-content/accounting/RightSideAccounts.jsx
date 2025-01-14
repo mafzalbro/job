@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CustomSelectWithInput from '../../../common/CustomSelectWithInput';
+import CustomSelectWithInput from '../../../../common/CustomSelectWithInput';
 
 const RightSideAccounts = () => {
   const [businessPartnerProject, setBusinessPartnerProject] = useState('');

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import Table from '../table/contents/Table';
-import Logistics from '../table/logistics/Logistics';
-import Accounting from '../table/accounting/Accounting';
-import ElectronicDocuments from '../table/electronic-documents/ElectronicDocuments';
-import AttachmentsTable from '../table/attachments/AttachmentsTable';
+import Table from './tab-content/contents/Table';
+import Logistics from './tab-content/logistics/Logistics';
+import Accounting from './tab-content/accounting/Accounting';
+import ElectronicDocuments from './tab-content/electronic-documents/ElectronicDocuments';
+import AttachmentsTable from './tab-content/attachments/AttachmentsTable';
 
 const General = ({ children }) => {
     return <div className='h-screen flex justify-center items-center'>{children}</div>;

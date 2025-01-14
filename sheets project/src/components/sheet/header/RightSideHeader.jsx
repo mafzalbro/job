@@ -36,7 +36,7 @@ const RightSideHeader = () => {
               name="thirdField"
               value={formData.thirdField}
               onChange={handleChange}
-              className="mt-1 p-2 border w-[140%] border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
+              className="mt-1 p-2 flex basis-96 border w-[140%] border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
             >
               <option value="" disabled>Primary</option>
               {thirdFieldOptions.map((option) => (

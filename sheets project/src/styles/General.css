@@ -71,6 +71,12 @@ table input::placeholder {
     }
 }
 
+@media (max-width: 700px) {
+    .input-group {
+        width: auto;
+    }
+}
+
 select {
     appearance: none;
     padding-right: 30px;
@@ -87,6 +93,7 @@ option {
 
 label {
     color: var(--color-text) !important;
+    font-size: 13px !important;
 }
 
 input[type="checkbox"] {
@@ -169,4 +176,18 @@ input[type="checkbox"]:disabled::before {
 ::-webkit-scrollbar-corner {
     background-color: var(--color-scrollbar-track);
     /* Matches the track color */
+}
+
+
+/* Hide scrollbar for all scrollable elements */
+.hide-scrollbar {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge, and Opera */
 }

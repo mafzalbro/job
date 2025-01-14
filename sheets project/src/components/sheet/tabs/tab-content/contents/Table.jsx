@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import TableTopBar from './TableTopBar';
-import ScrollButtons from '../../../common/ScrollButtons';
-import ReusableTable from '../../../common/ReusableTable';
+import ReusableTable from '../../../../common/ReusableTable';
 
 /*
 Target Path

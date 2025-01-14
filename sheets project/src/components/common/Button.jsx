@@ -6,6 +6,7 @@ const Button = ({
   disabled = false,
   loading = false,
   variant = 'primary', // primary, secondary, danger, warning
+  size = 'small',
   icon = null,
   iconPosition = 'left', // left or right
   className = '',
@@ -21,11 +22,11 @@ const Button = ({
 
   // Combine the base classes with the variant classes
   const buttonClass = `${variantClasses[variant]} ${className} 
-                        py-3 px-6 text-lg font-semibold focus:outline-none focus:ring-4 
+                        font-semibold focus:outline-none focus:ring-4 
                         transition-all duration-300 ease-in-out 
                         rounded-full inline-flex items-center justify-center 
                         shadow-md transform active:scale-95 disabled:bg-lightGray disabled:text-background 
-                        disabled:cursor-not-allowed disabled:transform-none`;
+                        disabled:cursor-not-allowed disabled:transform-none ${size === "large" ? "py-3 px-6 text-lg" : "py-1 px-4 text-base"}`;
 
   // Determine the icon and text order based on `iconPosition`
   const iconClasses = iconPosition === 'right' ? 'ml-2' : 'mr-2';

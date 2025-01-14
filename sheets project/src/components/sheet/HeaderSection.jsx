@@ -5,7 +5,7 @@ import RightSideHeader2 from './header2/RightSideHeader2.jsx';
 
 const HeaderSection = () => {
     return (
-        <div className='flex justify-between gap-4 header-section'>
+        <div className='flex justify-between flex-wrap gap-4 header-section'>
             <div>
                 <LeftSideHeader />
                 <LeftSideHeader2 />

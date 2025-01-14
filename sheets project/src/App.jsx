@@ -1,14 +1,16 @@
 import SheetModule from './components/sheet/SheetModule'
 import './styles/App.css'
 import { BrowserRouter } from 'react-router-dom'
-
+import ScrollProvider from './hooks/ScrollContext'
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <SheetModule />
-      </BrowserRouter>
+      <ScrollProvider>
+        <BrowserRouter>
+          <SheetModule />
+        </BrowserRouter>
+      </ScrollProvider>
     </>
   )
 }

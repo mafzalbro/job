@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ReusableTable from '../../../common/ReusableTable';
-import Button from '../../../common/Button';
-import { BiRightTopArrowCircle } from 'react-icons/bi';
+import ReusableTable from '../../../../common/ReusableTable';
+import Button from '../../../../common/Button';
 
 const Table = () => {
     // Array of objects to represent the table data

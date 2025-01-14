@@ -1,4 +1,3 @@
-
 @import "./HeaderFooter.css";
 @import "./Main.css";
 @import "./General.css";
@@ -35,7 +34,7 @@
     --border-radius: 100px;
     --th-bg: #227069;
     --textarea-border-radius: 20px;
-    --border-width: 3px;
+    --border-width: 2px;
 }
 
 
@@ -64,7 +63,7 @@ body::before {
     transform: translate(-50%, -50%);
     background-image: url("nitsel-icon.svg");
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 35%;
     background-position: 50% 50%;
     /* Adjust size */
     opacity: 0.07;
