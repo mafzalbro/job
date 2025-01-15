@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Button from '../../common/Button'
 
 const RightSideFooter = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +26,7 @@ const RightSideFooter = () => {
     }
 
     return (
-        <div>
+        <div className='flex flex-col items-center'>
             <div className="flex gap-2 input-group">
                 <label htmlFor="owner2" className="text-sm font-medium">
                     Owner
@@ -177,10 +176,6 @@ const RightSideFooter = () => {
                 />
             </div>
 
-            <div className='flex gap-2 my-2 justify-end'>
-                <Button variant='secondary' disabled>Copy From</Button>
-                <Button variant='secondary' disabled>Copy To</Button>
-            </div>
         </div>
     )
 }

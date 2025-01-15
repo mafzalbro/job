@@ -68,6 +68,42 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
         }
     };
 
+    // Function to handle paste event
+    const handlePaste = (e, rowIndex, colIndex) => {
+        e.preventDefault(); // Prevent default paste action
+        console.log({ clip: e.clipboardData });
+
+        const clipboardData = e.clipboardData || window.clipboardData;
+        const pastedData = clipboardData.getData('text/plain');
+
+        // Split the pasted data into rows and columns
+        const rows = pastedData.split('\n');
+        const rowData = rows.map(row => row.split('\t'));
+
+        // Determine how many rows and columns to update
+        const maxRows = Math.min(rowData.length, tableData.length - rowIndex);
+        const maxCols = Math.min(rowData[0].length, columns.length - colIndex - 1); // Subtract 1 for the first column
+
+        // Update the tableData state
+        setTableData(prevData => {
+            let newData = [...prevData];
+            for (let r = 0; r < maxRows; r++) {
+                for (let c = 0; c < maxCols; c++) {
+                    const column = columns[colIndex + c + 1]; // Skip the first column
+                    newData[rowIndex + r][column] = rowData[r][c];
+                }
+            }
+            return newData;
+        });
+
+        // Optionally adjust focus to the last pasted cell
+        setFocusedCell({
+            row: rowIndex + maxRows - 1,
+            col: colIndex + maxCols
+        });
+    };
+
+
     // Use effect to focus the input element when focusedCell changes
     useEffect(() => {
         if (inputRefs.current[focusedCell.row] && inputRefs.current[focusedCell.row][focusedCell.col]) {
@@ -79,7 +115,7 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
         <div className='relative'>
             <ScrollButtons scrollAmount={scrollAmount} scrollYRefs={scrollYRefs} />
 
-            <div className='overflow-x-auto max-h-[90vh] overflow-y-hidden' ref={scrollYRefs}>
+            <div className='overflow-x-auto max-h-[65vh] sm:max-h-[60vh] overflow-y-hidden' ref={scrollYRefs}>
                 <table className='w-full'>
                     <thead>
                         <tr className='bg-blue-100'>
@@ -109,6 +145,7 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
                                             className='bg-transparent focus:outline-none px-2'
                                             value={row[column] || ''}
                                             onChange={(e) => onInputChange(index, column, e.target.value)}
+                                            onPaste={(e) => handlePaste(e, index, colIndex)}
                                             onKeyDown={(e) => {
                                                 handleKeyDown(e, index, colIndex);
                                                 handleEnterKey(e, index, colIndex);

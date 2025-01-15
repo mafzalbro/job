@@ -73,7 +73,7 @@ table input::placeholder {
 
 @media (max-width: 700px) {
     .input-group {
-        width: auto;
+        width: 100%;
     }
 }
 
@@ -84,11 +84,17 @@ select {
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px 12px;
-    /* font-size: 12px !important; */
+    font-size: 12px !important;
 }
 
 option {
     background-color: var(--color-background);
+    color: var(--color-text) !important;
+}
+
+option:disabled {
+    background-color: var(--color-disabled-bg);
+    color: var(--color-text) !important;
 }
 
 label {

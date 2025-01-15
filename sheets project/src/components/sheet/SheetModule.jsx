@@ -29,6 +29,9 @@ const SheetModule = () => {
                 {/* <HeaderSection2 /> */}
                 <Tabs />
                 {/* <Table /> */}
+                <div className='h-4 w-full border-b border-border'>
+
+                </div>
                 <Footer />
             </div>
             {/* </div> */}

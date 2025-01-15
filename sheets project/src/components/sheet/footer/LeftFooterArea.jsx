@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Button from '../../common/Button'
 
 const LeftFooterArea = () => {
     const [formData, setFormData] = useState({ buyer: "Select a Buyer", owner: "", remarks: "" })
@@ -21,7 +20,7 @@ const LeftFooterArea = () => {
     }
 
     return (
-        <div>
+        <div className='flex flex-col items-center'>
 
             <div className="flex gap-2 input-group">
                 <label htmlFor="buyer" className="text-sm font-medium">
@@ -73,11 +72,6 @@ const LeftFooterArea = () => {
                 />
             </div>
 
-            <div className='flex gap-2 my-2'>
-                <Button>Add & New</Button>
-                <Button variant='secondary' disabled>Add Draft & New</Button>
-                <Button>Cancel</Button>
-            </div>
         </div>
     )
 }

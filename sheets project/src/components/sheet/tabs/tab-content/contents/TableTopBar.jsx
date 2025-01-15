@@ -34,7 +34,7 @@ const TableTopBar = () => {
     }
 
     return (
-        <div className='flex gap-2 justify-between header-section mb-2 mt-0'>
+        <div className='flex gap-8 justify-between header-section mb-2 mt-0'>
             {/* Item/Service Type Dropdown */}
             <div className="flex gap-2 items-center input-group">
                 <label htmlFor="itemServiceType" className="text-sm font-medium">

@@ -1,144 +1,148 @@
-import React, { useState, useEffect } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { AiOutlineFile, AiOutlineEdit, AiOutlineEye, AiOutlineTool } from 'react-icons/ai';
-import { FiSettings } from 'react-icons/fi';
+import React, { useState, useEffect, useRef } from 'react';
 import { CiMenuFries } from 'react-icons/ci';
-import { MdClose } from 'react-icons/md';
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import MobileMenu from './MobileMenu';
 import { useScrollContext } from '../../../hooks/ScrollContext';
+import menuItems from "./data/menuItems"
 
 const Navbar = () => {
   const { isVisible } = useScrollContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null); // Track which submenu is open
+  const [clickedMenuIndex, setClickedMenuIndex] = useState(null); // Track click
+  const [clickedSubMenuPath, setClickedSubMenuPath] = useState([]); // Track submenu clicks
 
-  const menuItems = [
-    { label: 'File', icon: <AiOutlineFile />, subMenu: ['New', 'Open', 'Save', 'Save As'] },
-    { label: 'Edit', icon: <AiOutlineEdit />, subMenu: ['Undo', 'Redo', 'Cut', 'Copy', 'Paste'] },
-    { label: 'View', icon: <AiOutlineEye />, subMenu: ['Zoom In', 'Zoom Out', 'Fullscreen'] },
-    { label: 'GoTo', icon: <AiOutlineFile />, subMenu: ['Line', 'Definition', 'Symbol'] },
-    { label: 'Modules', icon: <FiSettings />, subMenu: ['Install', 'Manage', 'Remove'] },
-    { label: 'Tools', icon: <AiOutlineTool />, subMenu: ['Options', 'Extensions', 'Settings'] },
-    { label: 'Window', icon: <AiOutlineFile />, subMenu: ['Minimize', 'Maximize', 'Close'] },
-    { label: 'Help', icon: <FiSettings />, subMenu: ['Documentation', 'FAQ', 'Contact Support'] },
-  ];
+  const navbarRef = useRef(null); // Ref to the Navbar component
 
-  // Disable scrolling when the mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.classList.add('overflow-hidden');
+
+  // Toggle menu visibility on click
+  const toggleMenu = (index, type) => {
+    if (clickedMenuIndex === index && !type) {
+      setClickedMenuIndex(null);
+      setClickedSubMenuPath([]); // Clear all submenus when top-level menu is closed
     } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-  }, [isMobileMenuOpen]);
-
-  // Toggle submenu visibility
-  const handleSubMenuToggle = (index) => {
-    if (openSubMenuIndex === index) {
-      setOpenSubMenuIndex(null); // Close submenu if it's already open
-    } else {
-      setOpenSubMenuIndex(index); // Open the selected submenu
+      if (!type) {
+        setClickedMenuIndex(index);
+        setClickedSubMenuPath([]); // Clear submenus when switching menus
+      }
     }
   };
 
+  // Handle submenu click toggling
+  const toggleSubMenu = (path) => {
+    setClickedSubMenuPath((prev) => {
+      const newPaths = prev.includes(path)
+        ? prev.filter((p) => !p.startsWith(path)) // Remove current path and all its child paths
+        : [...prev, path];
+      return newPaths;
+    });
+  };
+
+  const renderSubMenu = (subMenu, parentPath) => (
+    <ul className="bg-primary text-background shadow-lg rounded-lg p-2 ml-3 min-w-[12rem]">
+      {subMenu.map((item, index) => {
+        const path = `${parentPath}-${index}`;
+        const isOpen = clickedSubMenuPath.includes(path);
+
+        return (
+          <li key={index} className="relative">
+            <button
+              onClick={() => item.subMenu && toggleSubMenu(path)}
+              className="flex justify-between items-center w-full px-4 py-2 hover:bg-hoverBg hover:text-white rounded-lg"
+            >
+              <span>{item.label}</span>
+              {item.subMenu && (
+                <span>
+                  {isOpen ? <FaChevronDown size={12} /> : <FaChevronRight size={12} />}
+                </span>
+              )}
+            </button>
+            {isOpen && item.subMenu && (
+              <div className="absolute left-full top-0 mt-2">{renderSubMenu(item.subMenu, path)}</div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  const renderMenuItems = () => (
+    <ul className="hidden md:flex space-x-6 text-white">
+      {menuItems.map((menu, index) => {
+        const isOpen = clickedMenuIndex === index;
+
+        return (
+          <li key={index} className="relative">
+            <button
+              onClick={() => toggleMenu(index)}
+              onMouseOver={() => toggleMenu(index, "hover")}
+              className="flex items-center space-x-2 hover:text-hoverBg focus:outline-none"
+            >
+              <span>{menu.label}</span>
+              <span>
+                {/* {isOpen ? <FaChevronDown size={12} /> : <FaChevronRight size={12} />} */}
+              </span>
+            </button>
+            {isOpen && menu.subMenu && (
+              <div className="absolute mt-2 rounded-lg p-2 min-w-[12rem]">
+                {renderSubMenu(menu.subMenu, `${index}`)}
+              </div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  // Handle outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setClickedMenuIndex(null);
+        setClickedSubMenuPath([]);
+      }
+    };
+
+    window.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav
-      className={`fixed top-0 w-full z-[1000] transition-transform duration-300 backdrop-blur-md bg-background/50 ${isVisible ? 'translate-y-0' : '-translate-y-full'
-        }`}
-    >
-      <div className="flex justify-between items-center px-4 py-3">
+    <>
+      <nav
+        ref={navbarRef}
+        className={`fixed top-0 w-full z-[1000] transition-transform duration-300 backdrop-blur-md bg-background/50 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+          }`}
+      >
+        <div className="flex justify-between items-center px-4 py-3">
+          {/* Menu Items for Larger Screens */}
+          {renderMenuItems()}
 
-        {/* Menu Items for Larger Screens */}
-        <ul className="hidden sm:flex space-x-6 text-white">
-          {menuItems.map((menu, index) => (
-            <li key={index} className="group relative">
-              <button className="flex items-center space-x-2 hover:text-hoverBg focus:outline-none transition">
-                {menu.icon}
-                <span>{menu.label}</span>
-              </button>
-              {/* Dropdown */}
-              <ul className="absolute min-w-28 p-1 left-0 mt-2 hidden group-hover:block bg-primary text-background rounded-lg shadow-lg">
-                {menu.subMenu.map((subItem, subIndex) => (
-                  <li
-                    key={subIndex}
-                    className="px-4 py-2 hover:bg-hoverBg hover:text-white cursor-pointer"
-                  >
-                    {subItem}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden text-white focus:outline-none"
+            aria-label="Open Menu"
+          >
+            <CiMenuFries size={24} />
+          </button>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(true)}
-          className="sm:hidden text-white focus:outline-none"
-          aria-label="Open Menu"
-        >
-          <CiMenuFries size={24} />
-        </button>
-
-        {/* Logo */}
-        <div className="text-xl font-bold text-white">
-          <img src="nitsel-icon.svg" alt="nitsel-icon" className="w-5" />
+          {/* Logo */}
+          <div className="text-xl font-bold text-white">
+            <img src="nitsel-icon.svg" alt="nitsel-icon" className="w-5" />
+          </div>
         </div>
-
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <>
-
-          {/* Mobile Menu Content */}
-          <div className="fixed top-0 left-0 w-full h-screen bg-background/90 z-[1000] overflow-y-auto block sm:hidden">
-            <div className="flex justify-between items-center p-4">
-              <h2 className="text-white font-bold">Menu</h2>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white text-2xl focus:outline-none"
-                aria-label="Close Menu"
-              >
-                <MdClose />
-              </button>
-            </div>
-            <ul className="space-y-4 px-4">
-              {menuItems.map((menu, index) => (
-                <li key={index} className="border-b border-border">
-                  <button
-                    onClick={() => handleSubMenuToggle(index)}
-                    className="w-full text-left px-4 py-3 flex justify-between items-center"
-                  >
-                    <div className="flex items-center space-x-2">
-                      {menu.icon}
-                      <span>{menu.label}</span>
-                    </div>
-                    {openSubMenuIndex === index ? (
-                      <FaChevronUp size={12} />
-                    ) : (
-                      <FaChevronDown size={12} />
-                    )}
-                  </button>
-                  {/* Submenu */}
-                  {openSubMenuIndex === index && (
-                    <ul className="bg-primary/20 rounded-xl p-4 text-primary">
-                      {menu.subMenu.map((subItem, subIndex) => (
-                        <li
-                          key={subIndex}
-                          className="px-6 py-2 hover:bg-hoverBg/20 rounded-full hover:text-white cursor-pointer"
-                        >
-                          {subItem}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
-    </nav>
+      <MobileMenu
+        menuItems={menuItems}
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
+    </>
   );
 };
 
