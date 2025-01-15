@@ -29,12 +29,12 @@ const RightSideFooter = () => {
     return (
         <div>
             <div className="flex gap-2 input-group">
-                <label htmlFor="owner" className="text-sm font-medium">
+                <label htmlFor="owner2" className="text-sm font-medium">
                     Owner
                 </label>
                 <input
-                    id="owner"
-                    name="owner"
+                    id="owner2"
+                    name="owner2"
                     type="text"
                     value={formData.owner}
                     onChange={handleChange}

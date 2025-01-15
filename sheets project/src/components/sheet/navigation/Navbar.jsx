@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { AiOutlineFile, AiOutlineEdit, AiOutlineEye, AiOutlineTool } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
-import { useScrollContext } from '../../../hooks/ScrollContext';
 import { CiMenuFries } from 'react-icons/ci';
+import { MdClose } from 'react-icons/md';
+import { useScrollContext } from '../../../hooks/ScrollContext';
 
 const Navbar = () => {
   const { isVisible } = useScrollContext();
@@ -21,6 +22,15 @@ const Navbar = () => {
     { label: 'Help', icon: <FiSettings />, subMenu: ['Documentation', 'FAQ', 'Contact Support'] },
   ];
 
+  // Disable scrolling when the mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [isMobileMenuOpen]);
+
   // Toggle submenu visibility
   const handleSubMenuToggle = (index) => {
     if (openSubMenuIndex === index) {
@@ -31,15 +41,13 @@ const Navbar = () => {
   };
 
   return (
-    // max-w-7xl mx-auto
     <nav
-      className={`bg-background sticky top-0 w-full z-50 transition-transform duration-300 backdrop-blur-md bg-background/50 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`fixed top-0 w-full z-[1000] transition-transform duration-300 backdrop-blur-md bg-background/50 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
     >
-      <div className="
-       flex justify-between items-center px-4 py-3">
-        {/* Logo */}
+      <div className="flex justify-between items-center px-4 py-3">
 
-        {/* Menu Items */}
+        {/* Menu Items for Larger Screens */}
         <ul className="hidden sm:flex space-x-6 text-white">
           {menuItems.map((menu, index) => (
             <li key={index} className="group relative">
@@ -48,7 +56,7 @@ const Navbar = () => {
                 <span>{menu.label}</span>
               </button>
               {/* Dropdown */}
-              <ul className="absolute min-w-28 p-1 left-0 mt-2 hidden group-hover:block bg-primary text-background rounded shadow-lg">
+              <ul className="absolute min-w-28 p-1 left-0 mt-2 hidden group-hover:block bg-primary text-background rounded-lg shadow-lg">
                 {menu.subMenu.map((subItem, subIndex) => (
                   <li
                     key={subIndex}
@@ -62,55 +70,73 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Button */}
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => setIsMobileMenuOpen(true)}
           className="sm:hidden text-white focus:outline-none"
           aria-label="Open Menu"
         >
           <CiMenuFries size={24} />
         </button>
 
+        {/* Logo */}
         <div className="text-xl font-bold text-white">
-          <img src="nitsel-icon.svg" alt="nitsel-icon" className='w-5' />
+          <img src="nitsel-icon.svg" alt="nitsel-icon" className="w-5" />
         </div>
+
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <ul className="absolute top-16 left-0 w-full bg-background text-white shadow-lg block sm:hidden">
-          {menuItems.map((menu, index) => (
-            <li key={index} className="border-b border-border">
+        <>
+
+          {/* Mobile Menu Content */}
+          <div className="fixed top-0 left-0 w-full h-screen bg-background/90 z-[1000] overflow-y-auto block sm:hidden">
+            <div className="flex justify-between items-center p-4">
+              <h2 className="text-white font-bold">Menu</h2>
               <button
-                onClick={() => handleSubMenuToggle(index)}
-                className="w-full text-left px-4 py-3 flex justify-between items-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white text-2xl focus:outline-none"
+                aria-label="Close Menu"
               >
-                <div className="flex items-center space-x-2">
-                  {menu.icon}
-                  <span>{menu.label}</span>
-                </div>
-                {openSubMenuIndex === index ? (
-                  <FaChevronUp size={16} />
-                ) : (
-                  <FaChevronDown size={16} />
-                )}
+                <MdClose />
               </button>
-              {/* Submenu */}
-              {openSubMenuIndex === index && (
-                <ul className="bg-primary text-background">
-                  {menu.subMenu.map((subItem, subIndex) => (
-                    <li
-                      key={subIndex}
-                      className="px-6 py-2 hover:bg-hoverBg hover:text-white cursor-pointer"
-                    >
-                      {subItem}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
+            </div>
+            <ul className="space-y-4 px-4">
+              {menuItems.map((menu, index) => (
+                <li key={index} className="border-b border-border">
+                  <button
+                    onClick={() => handleSubMenuToggle(index)}
+                    className="w-full text-left px-4 py-3 flex justify-between items-center"
+                  >
+                    <div className="flex items-center space-x-2">
+                      {menu.icon}
+                      <span>{menu.label}</span>
+                    </div>
+                    {openSubMenuIndex === index ? (
+                      <FaChevronUp size={12} />
+                    ) : (
+                      <FaChevronDown size={12} />
+                    )}
+                  </button>
+                  {/* Submenu */}
+                  {openSubMenuIndex === index && (
+                    <ul className="bg-primary/20 rounded-xl p-4 text-primary">
+                      {menu.subMenu.map((subItem, subIndex) => (
+                        <li
+                          key={subIndex}
+                          className="px-6 py-2 hover:bg-hoverBg/20 rounded-full hover:text-white cursor-pointer"
+                        >
+                          {subItem}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
     </nav>
   );

@@ -80,7 +80,7 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
             <ScrollButtons scrollAmount={scrollAmount} scrollYRefs={scrollYRefs} />
 
             <div className='overflow-x-auto max-h-[90vh] overflow-y-hidden' ref={scrollYRefs}>
-                <table>
+                <table className='w-full'>
                     <thead>
                         <tr className='bg-blue-100'>
                             {columns.map((column) => (

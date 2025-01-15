@@ -12,7 +12,6 @@ const General = ({ children }) => {
 
 const Tabs = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const navigate = useNavigate();
 
     // Define the tab content
     const tabContent = [
@@ -37,7 +36,7 @@ const Tabs = () => {
     return (
         <div className="p-6">
             {/* Tab buttons */}
-            <div className="flex space-x-4 border-b border-border text-nowrap overflow-auto">
+            <div className="flex space-x-4 border-b border-border text-nowrap overflow-auto hide-scrollbar">
                 {tabContent.map((tab) => (
                     <div
                         key={tab.name}

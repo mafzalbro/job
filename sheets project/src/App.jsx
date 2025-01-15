@@ -1,6 +1,7 @@
 import SheetModule from './components/sheet/SheetModule'
+import FormArea from './components/login/FormArea'
 import './styles/App.css'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ScrollProvider from './hooks/ScrollContext'
 function App() {
 
@@ -8,7 +9,12 @@ function App() {
     <>
       <ScrollProvider>
         <BrowserRouter>
-          <SheetModule />
+          <Routes>
+            <Route path='/' element={
+              <SheetModule />
+            } />
+            <Route path='/login' element={<FormArea />} />
+          </Routes>
         </BrowserRouter>
       </ScrollProvider>
     </>

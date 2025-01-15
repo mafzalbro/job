@@ -10,8 +10,10 @@ const SheetModule = () => {
     return (
         <>
             <div>
-                <NavBar />
-                <ToolBar />
+                <div>
+                    <NavBar />
+                    <ToolBar />
+                </div>
                 {/* <div> */}
                 {/* <Sidebar /> */}
                 {/* <div className='flex gap-2'>
