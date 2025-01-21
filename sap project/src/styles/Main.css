@@ -1,0 +1,63 @@
+.main input,
+.main select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: var(--border-width) solid var(--color-border-light);
+    background: transparent;
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    width: 100%;
+    outline: none;
+}
+
+.main select {
+    padding-right: 30px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVR4nO2UOwrAIBAFvUQk3v8mSZVfE4scZ4LESlCMut0OCBa+HV6xGqMoijIKYAFOwA6YZYELWGse73z4HnmUhhmBrSYwAXcMPIBrkKYz5tagE5f2yLulLfJh0j/y4dIauZi0JBeXZnbTJ/fuD6dI0lK2aab5EY9sU0VRFJPwAs/UbERVyi05AAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+}
+
+.main input:focus,
+.main select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-focus-shadow);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0px;
+}
+
+.main input::placeholder,
+.main select::placeholder {
+    color: var(--color-light-gray);
+}
+
+/* Specific style for color input */
+.main input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: var(--border-width) solid var(--color-border-light);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    appearance: none;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.main input[type="color"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-focus-shadow);
+    outline: none;
+}
+
+.main input[type="color"]::-webkit-color-swatch {
+    border-radius: var(--border-radius);
+}
+
+.main input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}

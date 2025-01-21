@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Tech Solutions Ltd.",
+        "address": "1234 Innovation Drive",
+        "city": "San Francisco",
+        "country": "United States",
+        "email": "contact@techsolutions.com"
+    },
+    {
+        "id": 2,
+        "name": "GreenWave Technologies",
+        "address": "56 Green Park Avenue",
+        "city": "London",
+        "country": "United Kingdom",
+        "email": "info@greenwave.com"
+    },
+    {
+        "id": 3,
+        "name": "Global Industries Group",
+        "address": "789 Global Plaza",
+        "city": "New York",
+        "country": "United States",
+        "email": "support@globalindustries.com"
+    }
+]
