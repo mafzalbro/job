@@ -26,8 +26,8 @@ const defaultTheme = {
         DEFAULT: "2px",
     },
     fontSize: {
-        sm: "14px",
         xs: "12px",
+        sm: "14px",
         base: "16px",
         lg: "18px",
         xl: "20px",
@@ -36,7 +36,7 @@ const defaultTheme = {
         "4xl": "36px",
     },
     fontFamily: {
-        current: ["Outfit", "Arial", "sans-serif"],
+        current: ["Outfit", "sans-serif"],
     },
 };
 

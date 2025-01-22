@@ -40,11 +40,11 @@ th {
     font-weight: 600;
     padding: 20px 30px;
     font-size: medium;
-    background-color: var(--th-bg);
+    background-color: var(--color-thBg);
 }
 
 td:first-child {
-    background-color: var(--th-bg);
+    background-color: var(--color-thBg);
 }
 
 table input {
@@ -66,7 +66,7 @@ table input:focus {
 }
 
 table input::placeholder {
-    color: var(--color-light-gray);
+    color: var(--color-lightGray);
 }
 
 @media (max-width: 480px) {
@@ -106,7 +106,7 @@ option:disabled {
 
 label {
     color: var(--color-text) !important;
-    font-size: 13px !important;
+    font-size: var(--font-size-sm) !important;
 }
 
 input[type="checkbox"] {
@@ -143,18 +143,18 @@ input[type="checkbox"]:checked::before {
 }
 
 input[type="checkbox"]:focus {
-    box-shadow: 0 0 5px var(--color-focus-shadow);
+    box-shadow: 0 0 5px var(--color-focusShadow);
     border-color: var(--color-primary);
 }
 
 input[type="checkbox"]:disabled {
     background-color: var(--color-disabled-bg);
-    border-color: var(--color-disabled-border);
+    border-color: var(--color-disabledBorder);
     cursor: not-allowed;
 }
 
 input[type="checkbox"]:disabled::before {
-    background-color: var(--color-disabled-border);
+    background-color: var(--color-disabledBorder);
 }
 
 /* Scrollbar styling for webkit browsers */
@@ -166,7 +166,7 @@ input[type="checkbox"]:disabled::before {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-scrollbar-thumb);
+    background-color: var(--color-scrollbarThumb);
     border-radius: 6px;
     /* Rounded corners for the thumb */
     border: 2px solid transparent;
@@ -176,21 +176,20 @@ input[type="checkbox"]:disabled::before {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(52, 172, 144, 0.7);
+    filter: brightness(0.1);
     /* Darker on hover */
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--color-scrollbar-track);
+    background-color: var(--color-scrollbarTrack);
     border-radius: 6px;
     /* Rounded corners for the track */
 }
 
 ::-webkit-scrollbar-corner {
-    background-color: var(--color-scrollbar-track);
+    background-color: var(--color-scrollbarTrack);
     /* Matches the track color */
 }
-
 
 /* Hide scrollbar for all scrollable elements */
 .hide-scrollbar {
@@ -207,4 +206,37 @@ input[type="checkbox"]:disabled::before {
 
 span {
     font-size: small;
+}
+
+
+.text-xs {
+    font-size: var(--font-size-xs) !important;
+}
+
+.text-sm {
+    font-size: var(--font-size-sm) !important;
+}
+
+.text-base {
+    font-size: var(--font-size-base) !important;
+}
+
+.text-xl {
+    font-size: var(--font-size-xl) !important;
+}
+
+.text-2xl {
+    font-size: var(--font-size-2xl) !important;
+}
+
+.text-3xl {
+    font-size: var(--font-size-3xl) !important;
+}
+
+.text-4xl {
+    font-size: var(--font-size-4xl) !important;
+}
+
+.logo {
+    fill: var(--color-text) !important;
 }

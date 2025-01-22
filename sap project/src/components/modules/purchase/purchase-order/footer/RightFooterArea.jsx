@@ -113,7 +113,7 @@ const RightSideFooter = () => {
                         type="checkbox"
                         value={formData.rounding}
                         onChange={handleChange}
-                        className="mt-1 !w-6 !h-6 !p-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
+                        className="mt-1 !w-6 !h-6 !p-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent"
                     />
                 </div>
 

@@ -11,31 +11,40 @@
     /* Dark rich green for text */
     --color-primary: #86cfa7;
     /* Earthy light green (primary color) */
-    --color-light-gray: #88ceac;
+    --color-lightGray: #88ceac;
     /* Subtle light green for placeholders */
     --color-border: #34ac90;
-    --color-border-light: var(--color-light-gray);
+    --color-borderLight: var(--color-lightGray);
     /* Muted bright green for borders */
     /* Muted bright green for borders */
     --color-white: #bae9da;
     /* Soft white */
-    --color-hover-bg: #69b19b;
+    --color-hoverBg: #69b19b;
     /* Bright green for hover effects */
-    --color-focus-shadow: rgba(52, 172, 144, 0.3);
+    --color-focusShadow: rgba(52, 172, 144, 0.3);
     /* Green glow for focus effects */
-    --color-scrollbar-thumb: rgba(52, 172, 144, 1);
+    --color-scrollbarThumb: rgba(52, 172, 144, 1);
     /* Muted green for scrollbar thumb */
-    --color-scrollbar-track: #86cfa7;
+    --color-scrollbarTrack: #86cfa7;
     /* Lighter green for scrollbar track */
     --color-disabled-bg: #88ceac;
     /* Pale green for disabled background */
-    --color-disabled-border: #69b19b;
+    --color-disabledBorder: #69b19b;
     /* Light green for disabled borders */
     --border-radius: 100px;
-    --th-bg: #227069;
+    --color-thBg: #227069;
     --textarea-border-radius: 20px;
     --border-width: 2px;
+    --border-width-default: 1px;
     --font-family-current: "Outfit, sans-serif";
+    --font-size-sm: 14px;
+    --font-size-xs: 12px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
 }
 
 

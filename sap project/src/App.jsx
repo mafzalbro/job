@@ -8,6 +8,7 @@ import Navbar from './components/common/navigation/Navbar'
 import Toolbar from './components/common/navigation/ToolBar'
 import ThemeProvider from './hooks/ThemeProvider'
 import ThemeEditor from './hooks/ThemeEditor'
+import AdvancedThemeEditor from './hooks/AdvancedThemeEditor'
 function App() {
 
   return (
@@ -15,13 +16,16 @@ function App() {
       <ScrollProvider>
         <ThemeProvider>
           <BrowserRouter>
-            <div>
+            {window.location.pathname !== "/login" && <div>
               <Navbar />
               <Toolbar />
-            </div>
+            </div>}
             <Routes>
               <Route path='/theme' element={
                 <ThemeEditor />
+              } />
+              <Route path='/themeAdvanced' element={
+                <AdvancedThemeEditor />
               } />
               <Route path='/purchase-order' element={
                 <PurchaseOrderModule />

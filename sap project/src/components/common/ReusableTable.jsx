@@ -16,13 +16,13 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
     // Handle key navigation (Arrow keys)
     const handleKeyDown = (e, index, colIndex) => {
         if (e.key === 'ArrowDown') {
-            e.preventDefault();
             if (focusedCell.row < tableData.length - 1) {
+                e.preventDefault();
                 setFocusedCell({ row: focusedCell.row + 1, col: colIndex });
             }
         } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
             if (focusedCell.row > 0) {
+                e.preventDefault();
                 setFocusedCell({ row: focusedCell.row - 1, col: colIndex });
             }
         } else if (e.key === 'ArrowLeft') {

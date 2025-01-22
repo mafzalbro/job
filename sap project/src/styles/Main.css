@@ -4,8 +4,8 @@
     -moz-appearance: none;
     appearance: none;
     padding: 14px 18px;
-    font-size: 16px;
-    border: var(--border-width) solid var(--color-border-light);
+      font-size: var(--font-size-sm) !important;
+    border: var(--border-width) solid var(--color-borderLight) !important;
     background: transparent;
     border-radius: var(--border-radius);
     color: var(--color-text);
@@ -25,14 +25,14 @@
 .main input:focus,
 .main select:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 10px var(--color-focus-shadow);
+    box-shadow: 0 0 10px var(--color-focusShadow);
     outline: 2px solid var(--color-primary);
     outline-offset: 0px;
 }
 
 .main input::placeholder,
 .main select::placeholder {
-    color: var(--color-light-gray);
+    color: var(--color-lightGray);
 }
 
 /* Specific style for color input */
@@ -40,7 +40,7 @@
     width: 30px;
     height: 30px;
     padding: 0;
-    border: var(--border-width) solid var(--color-border-light);
+    border: var(--border-width) solid var(--color-borderLight);
     border-radius: var(--border-radius);
     cursor: pointer;
     appearance: none;
@@ -50,7 +50,7 @@
 
 .main input[type="color"]:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 10px var(--color-focus-shadow);
+    box-shadow: 0 0 10px var(--color-focusShadow);
     outline: none;
 }
 

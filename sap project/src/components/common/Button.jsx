@@ -15,7 +15,7 @@ const Button = ({
   // Define the button's variants using Tailwind classes based on the config
   const variantClasses = {
     primary: `
-      bg-white text-background hover:bg-opacity-90 focus:ring-primary 
+      bg-text text-background hover:bg-opacity-90 focus:ring-primary 
       disabled:bg-lightGray disabled:text-background disabled:cursor-not-allowed
     `,
     secondary: `
@@ -37,7 +37,7 @@ const Button = ({
                         font-semibold focus:outline-none focus:ring-4 
                         transition-all duration-300 ease-in-out 
                         rounded-full inline-flex items-center justify-center 
-                        shadow-md transform active:scale-95 disabled:transform-none ${size === "large" ? "py-3 px-6 text-lg" : "py-1 px-4 text-base"}`;
+                        shadow-md transform active:scale-95 disabled:transform-none ${size === "large" ? "py-3 px-6 text-sm sm:text-lg" : "py-1 px-4 text-lg max-[600px]:!text-sm"}`;
 
   // Determine the icon and text order based on `iconPosition`
   const iconClasses = iconPosition === 'right' ? 'ml-2' : 'mr-2';

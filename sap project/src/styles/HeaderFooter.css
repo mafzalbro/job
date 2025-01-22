@@ -14,8 +14,8 @@
 .header-section textarea,
 .footer-section textarea {
     /* padding: 14px 18px; */
-    font-size: 16px;
-    border: var(--border-width) solid var(--color-border-light) !important;
+    font-size: var(--font-size-sm) !important;
+    border: var(--border-width) solid var(--color-borderLight) !important;
     border-radius: var(--border-radius);
     color: var(--color-text);
     transition: all 0.3s ease;
@@ -44,7 +44,7 @@
 
 .footer-section textarea {
     padding: 14px 18px;
-    font-size: 16px;
+    font-size: var(--font-size-sm) !important;
     border-radius: var(--textarea-border-radius);
     border: var(--border-width) solid var(--color-border);
     color: var(--color-text);
@@ -58,9 +58,10 @@
 .footer-section .input-group label {
     width: 60%;
     text-align: right;
+    text-wrap: nowrap;
     color: var(--color-text) !important;
     font-weight: 600;
-    font-size: 16px;
+    font-size: var(--font-size-sm) !important;
     margin-right: 10px;
     /* font-size: small !important; */
 }
@@ -70,7 +71,7 @@
 .footer-section input::placeholder,
 .header-section select::placeholder,
 .footer-section select::placeholder {
-    color: var(--color-light-gray);
+    color: var(--color-lightGray);
 }
 
 @media (max-width: 700px) {

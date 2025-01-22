@@ -87,7 +87,7 @@ button:focus {
 /* for testing purpose */
 
 .bg-red {
-  background-color: red;
+  /* background-color: red; */
 }
 
 
@@ -96,6 +96,7 @@ button:focus {
   height: 100vh;
   width: 100%;
   /* background-color: #217b72; */
+  background-color: var(--color-background);
 }
 
 .form-image {
@@ -143,7 +144,7 @@ button:focus {
 }
 
 .form .form-content h2 span {
-  font-size: 30px;
+  font-size: 30px !important;
 }
 
 /* Color scheme for buttons, borders, and text */
@@ -158,18 +159,23 @@ text #bae9da
 
 /* Button Borders */
 .button-border {
-  border: 3px solid #88ceac;
+  /* border: 3px solid #88ceac; */
+  border: 3px solid var(--color-borderLight);
   background-color: transparent;
-  color: #88ceac;
+  color: var(--color-text);
+  /* color: #88ceac; */
 }
 
 /* Main Background */
 .button-bg {
-  background-color: #86cfa7;
+  /* background-color: #86cfa7; */
+  background-color: var(--color-background);
 }
 
 .submit-button {
-  background-color: #aae5b9;
+  /* background-color: #aae5b9; */
+  background-color: var(--color-text) !important;
+  color: var(--color-background) !important;
   display: inline-block;
   border: none;
   outline: none;
@@ -182,13 +188,13 @@ text #bae9da
 
 /* Button Text */
 .button-text {
-  color: #1a5759;
+  /* color: #1a5759; */
   font-weight: bold;
 }
 
 /* General Text */
 .text {
-  color: #bae9da;
+  /* color: #bae9da; */
   font-size: large;
   font-weight: 600;
 }
@@ -220,23 +226,28 @@ text #bae9da
   border: none;
   font-size: 16px;
   background-color: transparent;
-  color: #c6f4e9 !important;
+  /* color: #c6f4e9 !important; */
+  color: var(--color-text) !important;
   font-weight: 600;
 }
 
-.input::placeholder {
+/* .input::placeholder {
   color: #69b19b;
-}
+  color: var(--color-text);
+} */
 
 .input:focus {
-  outline: 2px solid #88ceac;
+  /* outline: 2px solid #88ceac; */
+  outline: 2px solid var(--color-borderLight);
 }
 
 /* Input Borders */
 .input-border {
-  border: 3px solid #88ceac;
+  /* border: 3px solid #88ceac; */
+  border: 3px solid var(--color-borderLight);
   background-color: transparent;
-  color: #88ceac;
+  /* color: #88ceac; */
+  color: var(--color-text);
 }
 
 /* Hide the default checkbox */
@@ -248,7 +259,8 @@ text #bae9da
 .checkbox {
   width: 30px;
   height: 30px;
-  border: 3px solid #86cfa7;
+  /* border: 3px solid #86cfa7; */
+  border: 3px solid var(--color-borderLight);
   border-radius: 10px;
   display: inline-block;
   vertical-align: middle;
@@ -265,8 +277,9 @@ text #bae9da
 
 
 .checkbox-input:checked+.checkbox {
-  background-color: #34ac90;
-  border-color: #34ac90;
+  /* background-color: #34ac90; */
+  background-color: var(--color-background);
+  border-color: var(--color-borderLight);
 }
 
 /* Add a checkmark when the box is checked */
@@ -277,7 +290,7 @@ text #bae9da
   left: 10px;
   width: 5px;
   height: 12px;
-  border: solid white;
+  border: solid var(--color-text);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -293,7 +306,8 @@ text #bae9da
 }
 
 .custom-checkbox a {
-  color: #bae9da;
+  /* color: #bae9da; */
+  color: var(--color-text);
   text-underline-offset: 1px;
 }
 
@@ -301,7 +315,8 @@ text #bae9da
 
 /* Hover effect for the checkbox */
 .checkbox:hover {
-  border-color: #34ac90;
+  /* border-color: #34ac90; */
+  border-color: var(--color-text);
 }
 
 
@@ -319,11 +334,12 @@ select option {
   padding: 10px;
   display: block;
   font-size: 16px;
-  color: #1a5759;
+  /* color: #1a5759; */
+  color: var(--color-text);
 }
 
 select option:hover {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   color: #000;
 }
 
@@ -370,8 +386,10 @@ span {
 }
 
 .btn-disabled {
-  background-color: #b5dcb4;
-  color: #4d8a7d;
+  /* background-color: #b5dcb4; */
+  /* color: #4d8a7d; */
+  background-color: var(--color-background);
+  color: var(--color-text);
   cursor: not-allowed;
 }
 
@@ -393,7 +411,7 @@ span {
 
 /* Modal content */
 .modal-content {
-  background-color: #217b72;
+  background-color: var(--color-background);
   height: 98vh;
   padding: 40px;
   border-radius: 20px;
@@ -407,20 +425,21 @@ span {
 /* Close button (×) */
 .close-btn {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 20px;
   background-color: transparent;
   border: none;
-  font-size: xx-large;
+  transform: scale(2);
   font-weight: 300;
   padding: 0 10px;
   border-radius: 100px;
   cursor: pointer;
-  color: #aae5b9;
+  /* color: #aae5b9; */
+  color: var(--color-text);
 }
 
 .close-btn:focus {
-  outline: 3px solid #86cfa7;
+  outline: 3px solid var(--color-borderLight);
 }
 
 
@@ -440,7 +459,7 @@ span {
   border-collapse: collapse;
   border-radius: 20px;
   overflow: hidden;
-  outline: 3px solid #86cfa7;
+  outline: 3px solid var(--color-borderLight);
 }
 
 .company-table th,
@@ -455,7 +474,8 @@ span {
 }
 
 .company-table th {
-  background-color: #1a5759;
+  /* background-color: #1a5759; */
+  background-color: var(--color-thBg);
   font-weight: bold;
 }
 
@@ -471,7 +491,7 @@ select {
   background-position: right 20px center;
   /* Adjust the position of the arrow */
   background-size: 12px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-borderLight);
   border-radius: 8px;
   font-size: 14px;
   width: 100%;
@@ -480,9 +500,9 @@ select {
 
 .password-eye-icon {
   position: absolute;
-  right: 12px;
-  top: 55%;
-  transform: translateY(-55%);
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   /* Centers the icon vertically */
   cursor: pointer;
 }

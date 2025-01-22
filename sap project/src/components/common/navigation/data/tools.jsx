@@ -1,4 +1,3 @@
-
 import {
     FiTool,
     FiSettings,
@@ -21,27 +20,28 @@ import {
     FiKey,
     FiFolder,
 } from 'react-icons/fi';
+
 const tools = [
-    { icon: <FiTool size={20} />, tooltip: 'Tool Settings' },
-    { icon: <FiSettings size={20} />, tooltip: 'System Settings' },
-    { icon: <FiCpu size={20} />, tooltip: 'Performance Monitor' },
-    { icon: <FiDatabase size={20} />, tooltip: 'Database Tools' },
-    { icon: <FiLayers size={20} />, tooltip: 'Layer Management' },
-    { icon: <FiBox size={20} />, tooltip: 'Packaging' },
-    { icon: <FiCode size={20} />, tooltip: 'Code Editor' },
-    { icon: <FiMonitor size={20} />, tooltip: 'Monitor' },
-    { icon: <FiActivity size={20} />, tooltip: 'Activity Log' },
-    { icon: <FiTerminal size={20} />, tooltip: 'Terminal' },
-    { icon: <FiEdit size={20} />, tooltip: 'Edit Tool' },
-    { icon: <FiSearch size={20} />, tooltip: 'Search' },
-    { icon: <FiCloud size={20} />, tooltip: 'Cloud Tools' },
-    { icon: <FiDownload size={20} />, tooltip: 'Download Manager' },
-    { icon: <FiUpload size={20} />, tooltip: 'Upload Manager' },
-    { icon: <FiShare2 size={20} />, tooltip: 'Sharing Tools' },
-    { icon: <FiUserCheck size={20} />, tooltip: 'User Management' },
-    { icon: <FiLock size={20} />, tooltip: 'Security Settings' },
-    { icon: <FiKey size={20} />, tooltip: 'Access Keys' },
-    { icon: <FiFolder size={20} />, tooltip: 'File Manager' },
+    { icon: <FiTool size={20} />, tooltip: 'Tool Settings', link: '/tool-settings' },
+    { icon: <FiSettings size={20} />, tooltip: 'System Settings', link: '/system-settings' },
+    { icon: <FiCpu size={20} />, tooltip: 'Performance Monitor', link: '/performance-monitor' },
+    { icon: <FiDatabase size={20} />, tooltip: 'Database Tools', link: '/database-tools' },
+    { icon: <FiLayers size={20} />, tooltip: 'Layer Management', link: '/layer-management' },
+    { icon: <FiBox size={20} />, tooltip: 'Packaging', link: '/packaging' },
+    { icon: <FiCode size={20} />, tooltip: 'Code Editor', link: '/code-editor' },
+    { icon: <FiMonitor size={20} />, tooltip: 'Monitor', link: '/monitor' },
+    { icon: <FiActivity size={20} />, tooltip: 'Activity Log', link: '/activity-log' },
+    { icon: <FiTerminal size={20} />, tooltip: 'Terminal', link: '/terminal' },
+    { icon: <FiEdit size={20} />, tooltip: 'Edit Tool', link: '/edit-tool' },
+    { icon: <FiSearch size={20} />, tooltip: 'Search', link: '/search' },
+    { icon: <FiCloud size={20} />, tooltip: 'Cloud Tools', link: '/cloud-tools' },
+    { icon: <FiDownload size={20} />, tooltip: 'Download Manager', link: '/download-manager' },
+    { icon: <FiUpload size={20} />, tooltip: 'Upload Manager', link: '/upload-manager' },
+    { icon: <FiShare2 size={20} />, tooltip: 'Sharing Tools', link: '/sharing-tools' },
+    { icon: <FiUserCheck size={20} />, tooltip: 'User Management', link: '/theme' },
+    { icon: <FiLock size={20} />, tooltip: 'Security Settings', link: '/security-settings' },
+    { icon: <FiKey size={20} />, tooltip: 'Access Keys', link: '/access-keys' },
+    { icon: <FiFolder size={20} />, tooltip: 'File Manager', link: '/file-manager' },
 ];
 
-export default tools
+export default tools;

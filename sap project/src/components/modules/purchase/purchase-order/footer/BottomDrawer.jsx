@@ -100,7 +100,7 @@ const AnimatedBottomDrawer = () => {
               </thead>
               <tbody>
                 {tabData[activeTab].map((item, index) => (
-                  <tr key={item.id} className="bg-lightGray hover:bg-border">
+                  <tr key={item.id} className="bg-background hover:bg-background/50">
                     <td className="px-4 py-2 text-primary">{index + 1}</td>
                     <td className="px-4 py-2">{item.message}</td>
                     <td className="px-4 py-2">{item.help}</td>

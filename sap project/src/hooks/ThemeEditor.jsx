@@ -1,8 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Button from "../components/common/Button";
+import { useNavigate } from "react-router-dom";
 
 const ThemeEditor = () => {
+    const navigate = useNavigate()
     const { theme, resetTheme, updateTheme } = useContext(ThemeContext);
     const [editedTheme, setEditedTheme] = useState(theme);
 
@@ -68,13 +70,15 @@ const ThemeEditor = () => {
             <div className="mb-6 border-b-[1px] pb-12 border-border">
                 <h3 className="text-xl font-semibold mb-2">Font Sizes</h3>
                 <div className="flex gap-6 flex-wrap justify-center">
-                    {Object.keys(theme.fontSize).slice(0, 1).map((sizeKey) => (
+                    {Object.keys(theme.fontSize).slice(1, 2).map((sizeKey) => (
                         <div key={sizeKey} className="mb-2">
                             <label className="block font-medium mb-1">
                                 {sizeKey} (px):
                             </label>
                             <input
                                 type="number"
+                                min={10}
+                                max={40}
                                 value={parseInt(editedTheme.fontSize[sizeKey], 10) || ""}
                                 onChange={(e) =>
                                     handleChange("fontSize", sizeKey, `${e.target.value}px`)
@@ -90,7 +94,6 @@ const ThemeEditor = () => {
             <div className="mb-6 border-b-[1px] pb-12 border-border">
                 <h3 className="text-xl font-semibold mb-2">Font Family</h3>
                 <div className="flex gap-6 flex-wrap justify-center">
-                    {/* {Object.entries(theme.fontFamily).map(([key, value]) => ( */}
                     {Object.entries(theme.fontFamily).map(([key, value]) => (
                         <div key={key} className="mb-2">
                             <label className="block font-medium mb-1">
@@ -148,6 +151,16 @@ const ThemeEditor = () => {
                 >
                     Reset to Default
                 </Button>
+
+                <Button
+                    onClick={() => {
+                        navigate("/themeAdvanced")
+                    }}
+                    variant="warning"
+                >
+                    Edit Advanced Settings
+                </Button>
+
             </div>
         </div>
     );

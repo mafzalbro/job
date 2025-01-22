@@ -3,7 +3,7 @@ import Button from '../../../../common/Button'
 
 const FooterButtons = () => {
     return (
-        <div className='flex gap-2 justify-between px-4 my-4 flex-wrap mx-auto pb-12'>
+        <div className='flex gap-2 justify-between max-[600px]:!justify-center pr-10 pl-28 my-4 flex-wrap mx-auto pb-12'>
             <div className='flex gap-2 my-2'>
                 <Button>Add & New</Button>
                 <Button variant='secondary' disabled>Add Draft & New</Button>

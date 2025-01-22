@@ -2,7 +2,7 @@ const FormImage = () => {
     return (
         <div className="form-image flex justify-center">
             <h1>Welcome</h1>
-            <img src="/deer.png" alt="deer" />
+            <img src="/deer-transparent.png" alt="deer" />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useScrollContext } from '../../../hooks/ScrollContext';
 import tools from "./data/tools"
+import { Link } from 'react-router-dom';
 
 const Toolbar = () => {
   const { isVisible } = useScrollContext();
@@ -14,15 +15,17 @@ const Toolbar = () => {
         {tools.map((tool, index) => (
           <div key={index} className="group">
             <button
-              className="text-white focus:outline-none hover:text-hoverBg transition"
+              className="focus:outline-none hover:text-hoverBg transition"
               aria-label={tool.tooltip}
-            >
-              {tool.icon}
+            > <Link to={tool.link} key={index} className="tool-item" title={tool.tooltip}>
+            {/* > <Link to={tool.link} key={index} className="tool-item"> */}
+                {tool.icon}
+              </Link>
             </button>
             {/* Tooltip */}
-            <span className={`absolute top-10 ${index ? "-ml-4" : "ml-2"} z-[1000] select-none pointer-events-none transform -translate-x-1/2 px-2 py-1 bg-text text-white text-center rounded opacity-0 group-hover:opacity-100 transition text-xs`}>
+            {/* <span className={`absolute top-10 ${index ? "-ml-4" : "ml-2"} z-[1000] select-none pointer-events-none transform -translate-x-1/2 px-3 py-1 bg-hoverBg/10 text-background text-center rounded opacity-0 group-hover:opacity-100 transition text-xs`}>
               {tool.tooltip}
-            </span>
+            </span> */}
           </div>
         ))}
       </div>

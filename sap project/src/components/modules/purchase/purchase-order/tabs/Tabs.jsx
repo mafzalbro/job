@@ -42,7 +42,7 @@ const Tabs = () => {
                         }}
                         onClick={() => setSelectedTab(tab.name)}
                         className={`relative cursor-pointer select-none py-2 px-6 my-2 text-lg outline-none font-medium transition-all duration-300
-                            ${selectedTab === tab.name ? 'border-b-2 border-border' : 'text-primary hover:text-primary'}
+                            ${selectedTab === tab.name ? 'border-b-2 border-border' : 'text-text hover:text-text'}
                             focus:ring-2 focus:ring-primary focus:rounded-full focus:active:ring-0`}
                     >
                         {tab.name}
