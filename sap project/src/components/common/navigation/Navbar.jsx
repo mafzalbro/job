@@ -82,9 +82,13 @@ const Navbar = () => {
               onClick={() => item.subMenu && toggleSubMenu(path)}
               className="flex justify-between items-center w-full px-4 py-[1px] hover:bg-hoverBg hover:text-background rounded-lg"
             >
-              <a href={item.link}>
-                <span className="text-left">{item.label}</span>
-              </a>
+              {item.subMenu ?
+                <span>{item.label}</span>
+                :
+                <Link className="text-left" to={item.label?.split(" ")?.join("")}>
+                  <span>{item.label}</span>
+                </Link>
+              }
               {item.subMenu && (
                 <span>
                   {isOpen ? <FaChevronDown size={12} /> : <FaChevronRight size={12} />}
