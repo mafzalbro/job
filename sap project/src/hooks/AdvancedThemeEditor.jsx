@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Button from "../components/common/Button";
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "../components/common/ImageUpload";
+import convertToCapitalizedWithSpaces from "../utils/convertToCapitalizedWithSpaces";
 
 const ThemeEditor = () => {
     const navigate = useNavigate()
@@ -22,20 +24,20 @@ const ThemeEditor = () => {
     const handleChange = (key, subKey, value) => {
         const updatedTheme = {
             ...editedTheme,
-            [key]: {
+            [key]: subKey ? {
                 ...editedTheme[key],
                 [subKey]: value,
-            },
+            } : value,
         };
 
         // console.log({ updatedTheme });
 
         setEditedTheme(updatedTheme);
-        updateTheme(updatedTheme); // Immediately update the theme
+        updateTheme(updatedTheme, subKey); // Immediately update the theme
     };
 
     return (
-        <div className="p-4 bg-background pt-24 main space-y-10 text-center">
+        <div className="p-4 bg-background/10 pt-24 main space-y-10 text-center">
             <h2 className="text-2xl font-bold m-4">Advanced Theme Editor</h2>
 
             {/* Colors Section */}
@@ -44,9 +46,7 @@ const ThemeEditor = () => {
                 <div className="flex gap-6 flex-wrap justify-center">
                     {Object.keys(theme.colors).map((colorKey) => (
                         <div key={colorKey} className="mb-2">
-                            <label className="block font-medium mb-1">
-                                {colorKey}:
-                            </label>
+                            <label className="block font-medium mb-1">{convertToCapitalizedWithSpaces(colorKey, "colorKey")}:</label>
                             <input
                                 type="color"
                                 value={editedTheme.colors[colorKey]}
@@ -57,6 +57,7 @@ const ThemeEditor = () => {
                             />
                             <input
                                 type="text"
+                                readOnly
                                 value={editedTheme.colors[colorKey]}
                                 onChange={(e) =>
                                     handleChange("colors", colorKey, e.target.value)
@@ -100,7 +101,7 @@ const ThemeEditor = () => {
                     {Object.keys(theme.borderRadius).map((radiusKey) => (
                         <div key={radiusKey} className="mb-2">
                             <label className="block font-medium mb-1">
-                                {radiusKey} (px):
+                                {convertToCapitalizedWithSpaces(radiusKey)} (px):
                             </label>
                             <input
                                 type="number"
@@ -197,6 +198,20 @@ const ThemeEditor = () => {
                 </div>
             </div>
 
+            {/* Logo Upload Section */}
+            <div className="mb-6 border-b-[1px] pb-12 border-border">
+                <h3 className="text-xl font-semibold mb-2">Upload Logo</h3>
+                <ImageUpload
+                    value={theme.logo}
+                    onChange={(base64, file) => {
+                        // logoUpload({ base64 });
+                        handleChange("logo", null, base64);
+                        // console.log("File selected:", { base64 });
+                        // console.log("File selected:", { file });
+                    }}
+                />
+            </div>
+
 
             <div className="flex gap-6 justify-center items-center my-10">
                 {/* Save Changes Button */}
@@ -216,7 +231,7 @@ const ThemeEditor = () => {
 
                 <Button
                     onClick={() => {
-                        navigate("/theme")
+                        navigate("/Theme")
                     }}
                     variant="warning"
                 >

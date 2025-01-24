@@ -1,47 +1,45 @@
-import {
-    FiTool,
-    FiSettings,
-    FiCpu,
-    FiDatabase,
-    FiLayers,
-    FiBox,
-    FiCode,
-    FiMonitor,
-    FiActivity,
-    FiTerminal,
-    FiEdit,
-    FiSearch,
-    FiCloud,
-    FiDownload,
-    FiUpload,
-    FiShare2,
-    FiUserCheck,
-    FiLock,
-    FiKey,
-    FiFolder,
-} from 'react-icons/fi';
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { MdOutlineLastPage, MdOutlinePreview, MdOutlineSortByAlpha, MdOutlineScreenLockPortrait, MdOutlineFirstPage, MdOutlineSms } from "react-icons/md";
+import { HiOutlineFilter, HiOutlineMail } from "react-icons/hi";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { VscOpenPreview, VscSymbolColor } from "react-icons/vsc";
+import { IoCalendarOutline, IoDocumentOutline } from "react-icons/io5";
+import { GrDocumentConfig, GrDocumentTransfer } from "react-icons/gr";
+import { TbTransactionDollar } from "react-icons/tb";
+import { GoPerson, GoSearch } from "react-icons/go";
+import { FiHelpCircle, FiLayout } from "react-icons/fi";
+import { LiaFaxSolid } from "react-icons/lia";
+import { BsFileExcel, BsFilePdf, BsFileWord, BsPrinter } from "react-icons/bs";
 
 const tools = [
-    { icon: <FiTool size={20} />, tooltip: 'Tool Settings', link: '/tool-settings' },
-    { icon: <FiSettings size={20} />, tooltip: 'System Settings', link: '/system-settings' },
-    { icon: <FiCpu size={20} />, tooltip: 'Performance Monitor', link: '/performance-monitor' },
-    { icon: <FiDatabase size={20} />, tooltip: 'Database Tools', link: '/database-tools' },
-    { icon: <FiLayers size={20} />, tooltip: 'Layer Management', link: '/layer-management' },
-    { icon: <FiBox size={20} />, tooltip: 'Packaging', link: '/packaging' },
-    { icon: <FiCode size={20} />, tooltip: 'Code Editor', link: '/code-editor' },
-    { icon: <FiMonitor size={20} />, tooltip: 'Monitor', link: '/monitor' },
-    { icon: <FiActivity size={20} />, tooltip: 'Activity Log', link: '/activity-log' },
-    { icon: <FiTerminal size={20} />, tooltip: 'Terminal', link: '/terminal' },
-    { icon: <FiEdit size={20} />, tooltip: 'Edit Tool', link: '/edit-tool' },
-    { icon: <FiSearch size={20} />, tooltip: 'Search', link: '/search' },
-    { icon: <FiCloud size={20} />, tooltip: 'Cloud Tools', link: '/cloud-tools' },
-    { icon: <FiDownload size={20} />, tooltip: 'Download Manager', link: '/download-manager' },
-    { icon: <FiUpload size={20} />, tooltip: 'Upload Manager', link: '/upload-manager' },
-    { icon: <FiShare2 size={20} />, tooltip: 'Sharing Tools', link: '/sharing-tools' },
-    { icon: <FiUserCheck size={20} />, tooltip: 'User Management', link: '/theme' },
-    { icon: <FiLock size={20} />, tooltip: 'Security Settings', link: '/security-settings' },
-    { icon: <FiKey size={20} />, tooltip: 'Access Keys', link: '/access-keys' },
-    { icon: <FiFolder size={20} />, tooltip: 'File Manager', link: '/file-manager' },
+    { icon: <MdOutlinePreview size={20} />, tooltip: 'Preview' },
+    { icon: <FiLayout size={20} />, tooltip: 'Layout Designer' },
+    { icon: <BsPrinter size={20} />, tooltip: 'Print' },
+    { icon: <HiOutlineMail size={20} />, tooltip: 'Email' },
+    { icon: <MdOutlineSms size={20} />, tooltip: 'SMS' },
+    { icon: <LiaFaxSolid size={20} />, tooltip: 'Fax' },
+    { icon: <MdOutlineScreenLockPortrait size={20} />, tooltip: 'Screen Lock' },
+    { icon: <AiOutlineFileAdd size={20} />, tooltip: 'Add File' },
+    { icon: <BsFilePdf size={20} />, tooltip: 'PDF' },
+    { icon: <BsFileWord size={20} />, tooltip: 'Word' },
+    { icon: <BsFileExcel size={20} />, tooltip: 'Excel' },
+
+    { icon: <MdOutlineFirstPage size={20} />, tooltip: 'First Data Record' },
+    { icon: <IoIosArrowBack size={20} />, tooltip: 'Previous Record' },
+    { icon: <IoIosArrowForward size={20} />, tooltip: 'Next Record' },
+    { icon: <MdOutlineLastPage size={20} />, tooltip: 'Last Data Record' },
+    { icon: <HiOutlineFilter size={20} />, tooltip: 'Filter' },
+    { icon: <VscOpenPreview size={20} />, tooltip: 'Journal Entry Preview' },
+    { icon: <MdOutlineSortByAlpha size={20} />, tooltip: 'Sort' },
+    { icon: <GrDocumentTransfer size={20} />, tooltip: 'Transfer Documents' },
+    { icon: <IoDocumentOutline size={20} />, tooltip: 'Document' },
+    { icon: <TbTransactionDollar size={20} />, tooltip: 'Transaction' },
+    { icon: <GrDocumentConfig size={20} />, tooltip: 'Configure Document' },
+    { icon: <IoCalendarOutline size={20} />, tooltip: 'Calendar' },
+    { icon: <GoPerson size={20} />, tooltip: 'Person' },
+    { icon: <FiHelpCircle size={20} />, tooltip: 'Help' },
+    { icon: <GoSearch size={20} />, tooltip: 'Find' },
+    { icon: <VscSymbolColor size={20} />, tooltip: 'Theme' }
 ];
 
 export default tools;

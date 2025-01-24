@@ -41,10 +41,12 @@ th {
     padding: 20px 30px;
     font-size: medium;
     background-color: var(--color-thBg);
+    /* background-color: var(--color-background); */
 }
 
 td:first-child {
     background-color: var(--color-thBg);
+    /* background-color: var(--color-background); */
 }
 
 table input {
@@ -239,4 +241,21 @@ span {
 
 .logo {
     fill: var(--color-text) !important;
+}
+
+
+
+label[for="file-upload"] {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* Blue-600 */
+    cursor: pointer;
+}
+
+
+label[for="file-upload"].disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

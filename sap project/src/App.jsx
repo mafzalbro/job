@@ -1,4 +1,5 @@
 import PurchaseOrderModule from './components/modules/purchase/purchase-order/PurchaseOrderModule'
+import ModulesRoute from './routes/modules/ModulesRoute'
 // import PurchaseRequestModule from './components/modules/purchase/purchase-request/PurchaseRequestModule'
 import FormArea from './components/login/FormArea'
 import './styles/App.css'
@@ -21,15 +22,13 @@ function App() {
               <Toolbar />
             </div>}
             <Routes>
-              <Route path='/theme' element={
+              <Route path='/Theme' element={
                 <ThemeEditor />
               } />
               <Route path='/themeAdvanced' element={
                 <AdvancedThemeEditor />
               } />
-              <Route path='/purchase-order' element={
-                <PurchaseOrderModule />
-              } />
+              {ModulesRoute}
               {/* <Route path='/purchase-request' element={
               <PurchaseRequestModule />
             } /> */}

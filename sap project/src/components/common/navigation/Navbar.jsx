@@ -1,13 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { CiMenuFries } from 'react-icons/ci';
 import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import MobileMenu from './MobileMenu';
 import { useScrollContext } from '../../../hooks/ScrollContext';
 import menuItems from "./data/menuItems";
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../../hooks/ThemeProvider';
 
 const Navbar = () => {
   const { isVisible } = useScrollContext();
+  const { theme } = useContext(ThemeContext);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [clickedMenuIndex, setClickedMenuIndex] = useState(null);
   const [clickedSubMenuPath, setClickedSubMenuPath] = useState([]);
@@ -168,8 +171,15 @@ const Navbar = () => {
           </button>
 
           <Link to={"/"} className="text-xl font-bold text-white">
-            {/* <img src="nitsel-icon.svg" alt="nitsel-icon" className="w-5" /> */}
-            <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 logo' viewBox="0 0 489.83 506"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path className="cls-1" d="M345.82,261.4a43.75,43.75,0,0,0,0-61.85L176.62,30.35A103.47,103.47,0,0,0,0,103.51V462.27a43.74,43.74,0,0,0,87.47,0V103.51a16,16,0,0,1,27.3-11.3L284,261.4A43.75,43.75,0,0,0,345.82,261.4Z" /><path className="cls-1" d="M446.09,0a43.73,43.73,0,0,0-43.73,43.74V402.49a16,16,0,0,1-27.3,11.31L205.86,244.6A43.74,43.74,0,1,0,144,306.46l169.2,169.19a103.47,103.47,0,0,0,176.62-73.16V43.74A43.74,43.74,0,0,0,446.09,0Z" /></g></g></svg>
+            <img
+              src={theme.logo || "nitsel-logo.svg"}
+              alt="nitsel-icon"
+              className={`w-5 shadow-2xl`}
+              style={{
+                filter: "drop-shadow(0px 0px 1px rgba(255, 255, 255, 1))", // Adds a drop shadow
+              }}
+            />
+            {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 logo' viewBox="0 0 489.83 506"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path className="cls-1" d="M345.82,261.4a43.75,43.75,0,0,0,0-61.85L176.62,30.35A103.47,103.47,0,0,0,0,103.51V462.27a43.74,43.74,0,0,0,87.47,0V103.51a16,16,0,0,1,27.3-11.3L284,261.4A43.75,43.75,0,0,0,345.82,261.4Z" /><path className="cls-1" d="M446.09,0a43.73,43.73,0,0,0-43.73,43.74V402.49a16,16,0,0,1-27.3,11.31L205.86,244.6A43.74,43.74,0,1,0,144,306.46l169.2,169.19a103.47,103.47,0,0,0,176.62-73.16V43.74A43.74,43.74,0,0,0,446.09,0Z" /></g></g></svg> */}
           </Link>
         </div>
       </nav>

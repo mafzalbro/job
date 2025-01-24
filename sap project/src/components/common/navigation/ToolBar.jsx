@@ -17,8 +17,8 @@ const Toolbar = () => {
             <button
               className="focus:outline-none hover:text-hoverBg transition"
               aria-label={tool.tooltip}
-            > <Link to={tool.link} key={index} className="tool-item" title={tool.tooltip}>
-            {/* > <Link to={tool.link} key={index} className="tool-item"> */}
+            > <Link to={tool.tooltip.split("").join("")} key={index} className="tool-item" title={tool.tooltip}>
+                {/* > <Link to={tool.link} key={index} className="tool-item"> */}
                 {tool.icon}
               </Link>
             </button>
