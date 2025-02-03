@@ -43,7 +43,7 @@ const CustomSelectWithInput = ({ label, options, value, onChange }) => {
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={`Enter ${label}`}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 border border-borderLight placeholder:!text-hoverBg rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <button
                     onClick={() => setShowList(!showList)}
@@ -57,7 +57,7 @@ const CustomSelectWithInput = ({ label, options, value, onChange }) => {
                             <li
                                 key={index}
                                 tabIndex={0}
-                                className="px-4 py-2 cursor-pointer rounded-lg hover:bg-border focus:outline-none focus:bg-border"
+                                className="px-4 py-2 cursor-pointer rounded-lg hover:bg-hoverBg focus:outline-none focus:bg-hoverBg"
                                 onClick={() => handleSelectOption(option)}
                                 onKeyDown={(e) => e.key === "Enter" ? handleSelectOption(option) : null}
                             >

@@ -15,16 +15,16 @@ const Button = ({
   // Define the button's variants using Tailwind classes based on the config
   const variantClasses = {
     primary: `
-      bg-text text-background hover:text-text hover:bg-background hover:bg-opacity-90 focus:ring-primary 
+      bg-text text-background hover:text-background hover:bg-hoverBg hover:bg-opacity-90 focus:ring-primary 
       disabled:bg-lightGray disabled:text-background disabled:cursor-not-allowed
     `,
     secondary: `
-      bg-lightGray text-text hover:text-background hover:bg-opacity-90 focus:ring-secondary 
+      bg-lightGray text-background hover:text-background hover:bg-opacity-90 focus:ring-secondary 
       disabled:bg-lightGray disabled:shadow-md disabled:text-text disabled:cursor-not-allowed
     `,
     danger: `
-      bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 
-      disabled:bg-red-300 disabled:text-white disabled:cursor-not-allowed
+      bg-red-500 text-red-950 hover:bg-red-600 focus:ring-red-500 
+      disabled:bg-red-300 disabled:!text-gray-50 disabled:cursor-not-allowed
     `,
     warning: `
       bg-yellow-400 text-black hover:bg-yellow-500 focus:ring-yellow-400 

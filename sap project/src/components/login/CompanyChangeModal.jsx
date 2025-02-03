@@ -18,7 +18,7 @@ const CompanyChangeModal = () => {
     { id: "2", dbName: "DB2", companyName: "Company B" },
     { id: "3", dbName: "DB3", companyName: "Company C" },
     { id: "4", dbName: "DB4", companyName: "Company D" },
-    // { id: "5", dbName: "DB5", companyName: "Company E" },
+    { id: "5", dbName: "DB5", companyName: "Company E" },
   ];
 
   // Validation function
@@ -100,13 +100,13 @@ const CompanyChangeModal = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button onClick={toggleModal} className="close-btn">
-              &times;
-            </button>
-
+        <div className="modal-overlay" onClick={() => { setIsModalOpen(false) }}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}
+          >
             <div className="form-content">
+              {/* <button onClick={toggleModal} className="close-btn">
+                &times;
+              </button> */}
               <div className="graphics">
               </div>
               <h2>

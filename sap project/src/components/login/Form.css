@@ -65,7 +65,7 @@
 }
 
 button:focus {
-  outline: 2px solid #63fab1;
+  outline: 2px solid var(--color-borderLight);
 }
 
 .relative {
@@ -87,7 +87,7 @@ button:focus {
 /* for testing purpose */
 
 .bg-red {
-  /* background-color: red; */
+  background-color: red;
 }
 
 
@@ -123,13 +123,15 @@ button:focus {
   position: relative;
   top: 0;
   z-index: 100;
-  margin-top: 210px;
+  margin-top: 165px;
   font-weight: 300;
-  color: #b5dcb4;
+  font-size: xx-large !important;
+  color: var(--color-text);
   letter-spacing: 2px;
   word-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 1px 2px 0px #34ac90;
+  text-shadow: 1px 2px 4px var(--color-background);
+
 }
 
 /* Form Content styling */
@@ -141,6 +143,7 @@ button:focus {
 
 .form-content {
   width: 80%;
+  position: relative;
 }
 
 .form .form-content h2 span {
@@ -327,6 +330,10 @@ select {
   font-size: 16px;
   transition: border-color 0.3s ease;
   cursor: pointer;
+  border: none !important;
+  margin-top: 8px;
+  outline: 3px solid var(--color-borderLight) !important;
+  border-right: 6px solid transparent !important;
 }
 
 
@@ -356,6 +363,7 @@ span {
   /* margin-bottom: 15px; */
   border-radius: 100px;
   position: fixed;
+  z-index: 1000;
   right: 20px;
   bottom: 20px;
   transform: translateY(100%);
@@ -376,8 +384,8 @@ span {
 }
 
 .alert-danger {
-  background-color: #fe776e;
-  color: red;
+  background-color: red;
+  color: rgb(255, 183, 183);
 }
 
 .alert-success {
@@ -386,8 +394,8 @@ span {
 }
 
 .btn-disabled {
-  /* background-color: #b5dcb4; */
-  /* color: #4d8a7d; */
+  /* background-color: #b5dcb4;
+  color: #4d8a7d; */
   background-color: var(--color-background);
   color: var(--color-text);
   cursor: not-allowed;
@@ -412,7 +420,7 @@ span {
 /* Modal content */
 .modal-content {
   background-color: var(--color-background);
-  height: 98vh;
+  height: 90vh;
   padding: 40px;
   border-radius: 20px;
   width: 90%;
@@ -424,7 +432,7 @@ span {
 
 /* Close button (×) */
 .close-btn {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   background-color: transparent;
@@ -439,7 +447,7 @@ span {
 }
 
 .close-btn:focus {
-  outline: 3px solid var(--color-borderLight);
+  outline: var(--border-width) solid var(--color-borderLight);
 }
 
 
@@ -459,7 +467,7 @@ span {
   border-collapse: collapse;
   border-radius: 20px;
   overflow: hidden;
-  outline: 3px solid var(--color-borderLight);
+  outline: var(--border-width) solid var(--color-borderLight);
 }
 
 .company-table th,
@@ -477,25 +485,6 @@ span {
   /* background-color: #1a5759; */
   background-color: var(--color-thBg);
   font-weight: bold;
-}
-
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding-right: 30px;
-  /* Add space for the dropdown arrow */
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVR4nO2UOwrAIBAFvUQk3v8mSZVfE4scZ4LESlCMut0OCBa+HV6xGqMoijIKYAFOwA6YZYELWGse73z4HnmUhhmBrSYwAXcMPIBrkKYz5tagE5f2yLulLfJh0j/y4dIauZi0JBeXZnbTJ/fuD6dI0lK2aab5EY9sU0VRFJPwAs/UbERVyi05AAAAAElFTkSuQmCC');
-  background-repeat: no-repeat;
-  background-position: right 20px center;
-  /* Adjust the position of the arrow */
-  background-size: 12px 12px;
-  border: 1px solid var(--color-borderLight);
-  border-radius: 8px;
-  font-size: 14px;
-  width: 100%;
-
 }
 
 .password-eye-icon {

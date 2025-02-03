@@ -45,6 +45,13 @@ const defaultTheme = {
 // Helper function to adjust dependent colors (darken and lighten)
 const adjustColorForDarker = (color, factor = 0.2) => chroma(color).darken(factor).hex();
 const adjustColorForLighter = (color, factor = 0.2) => chroma(color).brighten(factor).hex();
+const adjustColorForHover = (color, background, hoverOpacity = 0.8) => {
+    // Blend the color with the background using the hover opacity
+    const hoverColor = chroma.mix(background, color, hoverOpacity).hex();
+
+    return hoverColor;
+};
+const adjustColorForOpacity = (color, opacity) => chroma(color).alpha(opacity).hex();
 
 // Create context
 export const ThemeContext = createContext();
@@ -52,6 +59,16 @@ export const ThemeContext = createContext();
 // ThemeProvider component
 const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(defaultTheme);
+    const [isInvertedRequired, setIsInvertedRequired] = useState(false)
+
+    const isBackgroundBright = (color) => {
+        // Calculate the luminance of the color
+        const luminance = chroma(color).luminance();
+
+        // Check if the luminance is greater than the threshold (0.5 for bright/dark)
+        // return luminance > 0.5 ? "bright" : "dark";
+        return luminance > 0.5;
+    };
 
     // Load theme from local storage or use default on mount
     useEffect(() => {
@@ -61,27 +78,38 @@ const ThemeProvider = ({ children }) => {
         } else {
             localStorage.setItem("theme", JSON.stringify(defaultTheme));
         }
+
+        setIsInvertedRequired(storedTheme.logo?.includes("svg") && !isBackgroundBright(storedTheme.colors?.background))
+
     }, []);
+
+
 
     // Update theme function
     const updateTheme = (newTheme, subKey) => {
         setTheme((prev) => {
             const updatedTheme = { ...prev, ...newTheme }
+            // console.log(subKey);
+
+            setIsInvertedRequired(newTheme.logo?.includes("svg") && isBackgroundBright(newTheme.colors?.background))
+
+            if (newTheme.colors?.background && newTheme?.colors?.text) {
+                updatedTheme.colors.hoverBg = adjustColorForHover(newTheme.colors.text, newTheme?.colors?.background, 0.5);  // Darker for hover
+            }
 
             // Adjust dependent colors based on background and text
             if (subKey == "background") {
                 if (newTheme.colors?.background) {
-                    updatedTheme.colors.lightGray = adjustColorForDarker(newTheme.colors.background, 0.6);  // Darker for hover
                     updatedTheme.colors.scrollbarThumb = adjustColorForDarker(newTheme.colors.background, 0.3); // More darkened for scrollbar thumb
-                    updatedTheme.colors.thBg = adjustColorForDarker(newTheme.colors.background, 0.15);  // Lighter darken for table header background
+                    updatedTheme.colors.thBg = adjustColorForDarker(newTheme.colors.background, 0.1);  // Lighter darken for table header background
                     updatedTheme.colors.disabledBg = adjustColorForLighter(newTheme.colors.background, 0.2); // Slightly lighter for disabled background
                 }
             }
             if (subKey == "text") {
                 if (newTheme.colors?.text) {
-                    updatedTheme.colors.hoverBg = adjustColorForDarker(newTheme.colors.text, 1);  // Darker for hover
+                    updatedTheme.colors.lightGray = adjustColorForOpacity(newTheme.colors.text, 0.6);  // Darker for hover
                     updatedTheme.colors.primary = adjustColorForDarker(newTheme.colors.text, 0.9);  // Darker for hover
-                    updatedTheme.colors.border = adjustColorForDarker(newTheme.colors.text, 0.1); // Slightly darker for border
+                    updatedTheme.colors.border = adjustColorForOpacity(newTheme.colors.text, 0.2); // Slightly darker for border
                     updatedTheme.colors.borderLight = adjustColorForLighter(newTheme.colors.text, 0.3); // Much lighter for borderLight
                     updatedTheme.colors.white = newTheme.colors.text;  // No change for white text
                     updatedTheme.colors.scrollbarTrack = adjustColorForLighter(newTheme.colors.text, 0.25); // Lighter for scrollbar track
@@ -95,6 +123,8 @@ const ThemeProvider = ({ children }) => {
         // Save updated theme to local storage
         localStorage.setItem("theme", JSON.stringify(newTheme));
     };
+
+    console.log({ isInvertedRequired });
 
     // Reset theme function
     const resetTheme = () => {
@@ -144,7 +174,7 @@ const ThemeProvider = ({ children }) => {
     }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{ theme, updateTheme, resetTheme }}>
+        <ThemeContext.Provider value={{ theme, updateTheme, resetTheme, isInvertedRequired }}>
             {children}
         </ThemeContext.Provider>
     );

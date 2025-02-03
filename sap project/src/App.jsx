@@ -17,7 +17,7 @@ function App() {
       <ScrollProvider>
         <ThemeProvider>
           <BrowserRouter>
-            {window.location.pathname !== "/login" && <div>
+            {window.location.pathname !== "/login" && <div className='mb-12'>
               <Navbar />
               <Toolbar />
             </div>}

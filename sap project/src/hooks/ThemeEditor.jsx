@@ -7,7 +7,7 @@ import convertToCapitalizedWithSpaces from "../utils/convertToCapitalizedWithSpa
 
 const ThemeEditor = () => {
     const navigate = useNavigate();
-    const { theme, resetTheme, updateTheme } = useContext(ThemeContext);
+    const { theme, resetTheme, updateTheme, isInvertedRequired } = useContext(ThemeContext);
     const [editedTheme, setEditedTheme] = useState(theme);
 
     // Load theme from local storage or fallback to default if not available
@@ -27,7 +27,7 @@ const ThemeEditor = () => {
         };
 
         setEditedTheme(updatedTheme);
-        updateTheme(updatedTheme, key); // Immediately update the theme
+        updateTheme(updatedTheme, subKey); // Immediately update the theme
     };
 
 
@@ -76,6 +76,7 @@ const ThemeEditor = () => {
 
                         // console.log("File selected:", { file });
                     }}
+                    isInvertedRequired={isInvertedRequired}
                 />
             </div>
 

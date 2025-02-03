@@ -27,7 +27,7 @@
     /* Muted green for scrollbar thumb */
     --color-scrollbarTrack: #86cfa7;
     /* Lighter green for scrollbar track */
-    --color-disabled-bg: #88ceac;
+    --color-disabledBg: #88ceac;
     /* Pale green for disabled background */
     --color-disabledBorder: #69b19b;
     /* Light green for disabled borders */

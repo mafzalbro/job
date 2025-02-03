@@ -127,11 +127,11 @@ const ReusableTable = ({ columns, data, onInputChange, rightSideContent }) => {
                     <tbody>
                         {tableData.map((row, index) => (
                             <tr key={index}>
-                                <td className='border bg-blue-100'>{index + 1}</td>
+                                <td>{index + 1}</td>
                                 {columns.slice(1).map((column, colIndex) => (
                                     <td
                                         key={column}
-                                        className={`border border-gray-300 ${focusedCell.row === index && focusedCell.col === colIndex ? 'bg-blue-100' : ''
+                                        className={`${focusedCell.row === index && focusedCell.col === colIndex ? '' : ''
                                             }`}
                                     >
                                         <input

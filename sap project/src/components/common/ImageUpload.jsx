@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ImageUpload = ({ value, onChange, uploadFunction }) => {
+const ImageUpload = ({ value, onChange, uploadFunction, isInvertedRequired }) => {
     const [preview, setPreview] = useState(""); // For previewing the image
     const [uploading, setUploading] = useState(false); // For upload state management
 
@@ -39,9 +39,9 @@ const ImageUpload = ({ value, onChange, uploadFunction }) => {
                 <img
                     src={preview}
                     alt="Preview"
-                    className="w-24 h-24 object-contain my-4 shadow-2xl"
+                    className="w-24 h-24 object-contain my-4"
                     style={{
-                        filter: "drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.5))", // Adds a drop shadow
+                        filter: `drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.5)) invert(${isInvertedRequired ? 1 : 0})`, // Adds a drop shadow
                     }}
                 />
             )}

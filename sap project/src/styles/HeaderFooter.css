@@ -23,6 +23,14 @@
     width: 100%;
 }
 
+.header-section select, .footer-section select {
+    border: none !important;
+    margin-top: 6px;
+    outline: var(--border-width) solid var(--color-borderLight) !important;
+    border-right: 6px solid transparent !important;
+}
+
+
 .header-section input:focus,
 .footer-section input:focus,
 .header-section select:focus,

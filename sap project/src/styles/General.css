@@ -1,5 +1,5 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-color: var(--color-text);
+    background-color: var(--color-hoverBg);
     border-radius: var(--border-radius);
     padding: 4px;
     /* Ensure the indicator matches the text color */
@@ -59,6 +59,7 @@ table input {
 /* last element in attachment was not taking full width */
 table td:last-child input {
     width: 100%;
+    height: 100%;
 }
 
 table input:focus {
@@ -85,7 +86,7 @@ table input::placeholder {
     }
 }
 
-select {
+/* select {
     appearance: none;
     padding-right: 30px;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVR4nO2UOwrAIBAFvUQk3v8mSZVfE4scZ4LESlCMut0OCBa+HV6xGqMoijIKYAFOwA6YZYELWGse73z4HnmUhhmBrSYwAXcMPIBrkKYz5tagE5f2yLulLfJh0j/y4dIauZi0JBeXZnbTJ/fuD6dI0lK2aab5EY9sU0VRFJPwAs/UbERVyi05AAAAAElFTkSuQmCC');
@@ -93,7 +94,7 @@ select {
     background-position: right 10px center;
     background-size: 12px 12px;
     font-size: 12px !important;
-}
+} */
 
 option {
     background-color: var(--color-background);
@@ -102,7 +103,7 @@ option {
 }
 
 option:disabled {
-    background-color: var(--color-disabled-bg);
+    background-color: var(--color-disabledBg);
     color: var(--color-text) !important;
 }
 
@@ -163,7 +164,7 @@ input[type="checkbox"]:disabled::before {
 ::-webkit-scrollbar {
     width: 12px;
     /* Width of the scrollbar */
-    height: 12px;
+    height: 8px;
     /* Height of the scrollbar */
 }
 
@@ -193,17 +194,19 @@ input[type="checkbox"]:disabled::before {
     /* Matches the track color */
 }
 
-/* Hide scrollbar for all scrollable elements */
-.hide-scrollbar {
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-}
+/* Hide scrollbar for mobile devices only */
+@media (max-width: 768px) {
+    .hide-scrollbar {
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+    }
 
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari, Edge, and Opera */
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Edge, and Opera */
+    }
 }
 
 span {
