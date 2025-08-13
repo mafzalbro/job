@@ -79,7 +79,7 @@ const ThemeProvider = ({ children }) => {
             localStorage.setItem("theme", JSON.stringify(defaultTheme));
         }
 
-        setIsInvertedRequired(storedTheme.logo?.includes("svg") && !isBackgroundBright(storedTheme.colors?.background))
+        setIsInvertedRequired(storedTheme?.logo?.includes("svg") && !isBackgroundBright(storedTheme.colors?.background))
 
     }, []);
 
@@ -91,7 +91,7 @@ const ThemeProvider = ({ children }) => {
             const updatedTheme = { ...prev, ...newTheme }
             // console.log(subKey);
 
-            setIsInvertedRequired(newTheme.logo?.includes("svg") && isBackgroundBright(newTheme.colors?.background))
+            setIsInvertedRequired(newTheme?.logo?.includes("svg") && isBackgroundBright(newTheme.colors?.background))
 
             if (newTheme.colors?.background && newTheme?.colors?.text) {
                 updatedTheme.colors.hoverBg = adjustColorForHover(newTheme.colors.text, newTheme?.colors?.background, 0.5);  // Darker for hover
@@ -141,7 +141,7 @@ const ThemeProvider = ({ children }) => {
             root.style.setProperty(`--color-${key}`, theme.colors[key]);
         });
 
-        root.style.setProperty("--background-logo", `url(${theme.logo})`);
+        root.style.setProperty("--background-logo", `url(${theme?.logo})`);
 
         // Set border-radius as CSS variables
         Object.keys(theme.borderRadius).forEach((key) => {
